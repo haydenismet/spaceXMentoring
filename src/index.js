@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Welcome from './App';
 import reportWebVitals from './reportWebVitals';
+import SpaceX from './spacex-graphql';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Welcome title="SpaceX" subtitle="Built with React and GraphQL" />
+    <SpaceX name="Graph QL Count"/> 
+
   </React.StrictMode>,
   document.getElementById('root')
 );
