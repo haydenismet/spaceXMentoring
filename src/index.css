@@ -1,13 +1,54 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*
+1em = 16px
+1.6rem = 16px
+*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,700;1,900&display=swap');
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+    font-size: 62.5%;
+    /* 16px */
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: flex;
+    font-size:1.6rem;
+    font-family: ;
+}
+
+#root {
+  display:flex;
+}
+
+.navbar {
+  background-color:#161616;
+  height:100vh;
+  display:flex;
+  color:white;
+  padding:6rem;
+  font-size:2.3rem;
+  font-weight:900;
+}
+
+.nav-list li {
+  list-style-type: none;
+  text-decoration: none;
+  margin-bottom:2.5rem;
+  cursor:pointer;
+}
+
+.queryList {
+  display:flex;
+  flex-direction:column;
 }

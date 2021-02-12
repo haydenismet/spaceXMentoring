@@ -1,21 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Welcome from './App';
-import reportWebVitals from './reportWebVitals';
-import SpaceX from './spacex-graphql';
+import SpaceX from './spaceX';
+import Sidebar from './Sidebar.js';
+import Headings from './Headings.js';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Welcome title="SpaceX" subtitle="Built with React and GraphQL" />
+    <Sidebar navOne="About." navTwo="Missions." navThree="Launches." navFour="Rockets." navFive="Ships." navSix="Company." >
+    </Sidebar>
+    {/* How to pass the selected link from Sidebar component to Headings component to update dynamically?*/}
+    <Headings headingTitle="Rockets" ></Headings>
     <SpaceX name="Graph QL Count"/> 
-
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

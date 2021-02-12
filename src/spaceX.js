@@ -44,10 +44,8 @@ function SpaceX(props) {
 
   return (
     <>
-      <div>
+      <div className="queryList">
         SpaceX {props.name} = {data.launchesPast.length}
-      </div>
-      <div>
         {data.launchesPast.map((mission) => (
           <div key={mission.mission_name}>{mission.mission_name}</div>
         ))}
@@ -58,4 +56,3 @@ function SpaceX(props) {
 
 
 export default SpaceX;
-//have to remove the return and re-add to render?
