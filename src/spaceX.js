@@ -44,12 +44,12 @@ function SpaceX(props) {
 
   return (
     <>
-      <div className="queryList">
+      <section className="queryList">
         SpaceX {props.name} = {data.launchesPast.length}
         {data.launchesPast.map((mission) => (
           <div key={mission.mission_name}>{mission.mission_name}</div>
         ))}
-      </div>
+      </section>
     </>
   );
 }
