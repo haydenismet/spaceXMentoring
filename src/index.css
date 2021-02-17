@@ -33,7 +33,7 @@ body {
 .navbar {
   background-color: #161616;
   height: 100vh;
-  width: 230px;
+  width: 240px;
   color: white;
   padding: 6rem;
   font-size: 2rem;
@@ -58,7 +58,7 @@ body {
   font-weight: 900;
   letter-spacing: 0.3rem;
   width: 23%;
-  background-color: black;
+  background-color: #202020;
   color: white;
   padding: 1rem;
 }
@@ -86,12 +86,12 @@ body {
 .item-container {
   padding: 1.5rem 0 0 2rem;
   display: flex;
-  background-color: #F3F3F3;
-  border-radius: 1rem;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   flex-direction: column;
   width: 44.1rem;
   height: auto;
   margin: 2rem 5rem 2rem -2rem;
+  border-radius:1rem;
 }
 
 .item-name {
@@ -122,7 +122,7 @@ span.mission-patch-small img {
 }
 
 .sort-by {
-  background-color: black;
+  background-color: #202020;
   color: white;
   padding: 1rem;
   text-transform: uppercase;
@@ -130,29 +130,37 @@ span.mission-patch-small img {
   font-family: 'GuruProximaNova';
   letter-spacing: 0.1rem;
   margin-right: 3rem;
+  align-self: center;
 }
 
 .filter-options {
   display: flex;
   list-style: none;
+  cursor:pointer;
+}
+
+.filter-options li:hover {
+background-color:#202020;
+color:white;
 }
 
 .filter-options li {
   margin-right: 1rem;
   align-self: flex-end;
-  background-color: black;
-  color: white;
-  padding: 1rem;
-  font-size: 1.2rem;
+  background-color: white;
+  color: #202020;
+  padding: 0.76rem 3rem;
+  font-size: 1.5rem;
   align-self: center;
   font-weight: 900;
   font-family: 'GuruProximaNova';
   letter-spacing: 0.1rem;
+  border: 5px solid #202020;
 }
 
 .launch-details {
   display: flex;
-  margin-top: -2rem;
+  margin-top: -2.5rem;
   margin-left: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -163,13 +171,25 @@ span.mission-patch-small img {
 
 }
 
+.rocket, .launch-year,.launch-success {
+  background-color:#363636;
+  padding: 0.5rem 1rem;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  font-size: 1.2rem;
+
+}
+
 .launch-year {
   margin-right: 1rem;
-  margin-left: 1rem;
+
 }
 
 .item-details {
-  padding: 1rem 5rem 3rem 0.5rem;
+  padding: 1rem 4rem 3rem 0.5rem;
   font-size: 1.4rem;
   line-height: 1.9rem;
+  text-align: justify;
 }

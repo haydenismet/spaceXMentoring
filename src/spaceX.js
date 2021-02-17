@@ -8,7 +8,6 @@ function SpaceX() {
   return (
     <>
       <Navigation onHeaderChange={setHeader} />
-      <SortFilter />
       <RenderCategoryView header={header} />
     </>
   );

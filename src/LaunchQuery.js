@@ -31,7 +31,6 @@ const query = gql`
 
 function LaunchQuery(props) {
   const [data, setData] = useState({ launches: [] });
-  const [load, setLoad] = useState("Loading...")
 
   useEffect(() => {
     async function fetchSpaceX() {
@@ -43,9 +42,12 @@ function LaunchQuery(props) {
   }, []);
 
   return (
-    <section className="content-section">
-       <LaunchTemplate spaceData={data}/>
-    </section>
+    <>
+      {props.children}
+      <section className="content-section">
+        <LaunchTemplate spaceData={data} />
+      </section>
+    </>
   );
 }
 

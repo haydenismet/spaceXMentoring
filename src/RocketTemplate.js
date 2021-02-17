@@ -1,19 +1,19 @@
 import React from "react";
 
 function RocketTemplate(props) {
-    console.log(props)
-    return props.spaceData.rockets.map((rocket) => (
-      <div className="item-container">
-        <div className="item-name">{rocket.name}</div>
-        <div className="rocket-details">
-          <div className="launch-year">{rocket.first_flight}</div>
-          <div className="launch-success">
-            {rocket.success_rate_pct}% Success Rate
-          </div>
+  console.log(props);
+  return props.spaceData.rockets.map((rocket) => (
+    <div className="item-container">
+      <div className="item-name">{rocket.name}</div>
+      <div className="rocket-details">
+        <div className="launch-year">{rocket.first_flight}</div>
+        <div className="launch-success">
+          {rocket.success_rate_pct}% Success Rate
         </div>
-        <div className="item-details">{rocket.description}</div>
       </div>
-    ));
+      <div className="item-details">{rocket.description}</div>
+    </div>
+  ));
 }
 
 export default RocketTemplate;
