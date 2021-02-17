@@ -1,0 +1,16 @@
+import React from "react";
+import SpaceX from "./spaceX";
+import SidebarHeadingParent from "./SidebarHeadingParent.js";
+import Launches from "./Launches.js";
+
+function SpaceX() {
+  return (
+    <>
+      <SidebarHeadingParent />
+      <SpaceX name="Graph QL Count" />
+      <Launches />
+    </>
+  );
+}
+
+export default SpaceX;
