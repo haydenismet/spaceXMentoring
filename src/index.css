@@ -86,22 +86,24 @@ body {
 .item-container {
   padding: 1.5rem 0 0 2rem;
   display: flex;
-  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  background-image: linear-gradient(270deg, #ffffff 98.5%, #363636 1.5%);
   flex-direction: column;
   width: 44.1rem;
   height: auto;
   margin: 2rem 5rem 2rem -2rem;
-  border-radius:1rem;
+  box-shadow: 2px 2px 5px -3px #000000;
+  border: 3px solid #363636;
 }
 
 .item-name {
   font-weight: 900;
   font-size: 2.5rem;
-  font-family: 'GuruProximaNova';
+  font-family: 'Lato';
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color:#363636;
 }
 
 .mission-patch-small {
@@ -127,7 +129,7 @@ span.mission-patch-small img {
   padding: 1rem;
   text-transform: uppercase;
   font-weight: 900;
-  font-family: 'GuruProximaNova';
+  font-family: 'Lato';
   letter-spacing: 0.1rem;
   margin-right: 3rem;
   align-self: center;
@@ -136,12 +138,12 @@ span.mission-patch-small img {
 .filter-options {
   display: flex;
   list-style: none;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .filter-options li:hover {
-background-color:#202020;
-color:white;
+  background-color: #202020;
+  color: white;
 }
 
 .filter-options li {
@@ -153,7 +155,7 @@ color:white;
   font-size: 1.5rem;
   align-self: center;
   font-weight: 900;
-  font-family: 'GuruProximaNova';
+  font-family: 'Lato';
   letter-spacing: 0.1rem;
   border: 5px solid #202020;
 }
@@ -168,11 +170,14 @@ color:white;
 .rocket-details {
   display: flex;
   margin-left: 0.5rem;
+ 
 
 }
 
-.rocket, .launch-year,.launch-success {
-  background-color:#363636;
+.rocket,
+.launch-year,
+.launch-success {
+  background-color: #363636;
   padding: 0.5rem 1rem;
   color: white;
   text-transform: uppercase;
@@ -182,6 +187,11 @@ color:white;
 
 }
 
+.rocket {
+  padding-left: 3rem;
+  margin-left: -2.5rem;
+
+}
 .launch-year {
   margin-right: 1rem;
 
