@@ -22,7 +22,7 @@ html {
 body {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-
+  background-color: #F6F7FB;
   font-size: 1.6rem;
 }
 
@@ -57,10 +57,16 @@ body {
   font-size: 2rem;
   font-weight: 900;
   letter-spacing: 0.3rem;
-  width: 23%;
+  /* width: 23%; */
   background-color: #202020;
   color: white;
-  padding: 1rem;
+  padding: 1rem 5rem;
+  /* border-radius: 5rem; */
+  align-self: self-end;
+  border-top-right-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+  display: flex;
 }
 
 .heading-title,
@@ -71,48 +77,48 @@ body {
 .rockets-section {
   margin-left: 28rem;
   margin-bottom: 2rem;
-
-}
-
-.content-section {
-  margin-left: 30rem;
+  display: flex;
 }
 
 .content-section {
   display: flex;
   flex-wrap: wrap;
+  width: 50rem;
+  margin-left: 30rem;
 }
 
 .item-container {
   padding: 1.5rem 0 0 2rem;
   display: flex;
-  background-image: linear-gradient(270deg, #ffffff 98.5%, #363636 1.5%);
+  background-image: linear-gradient(270deg, #ffffff 100%, #363636 0%);
   flex-direction: column;
   width: 44.1rem;
   height: auto;
   margin: 2rem 5rem 2rem -2rem;
-  box-shadow: 2px 2px 5px -3px #000000;
-  border: 3px solid #363636;
+  /* box-shadow: 2px 2px 5px -3px #000000; */
+  /* border: 3px solid #363636; */
+  border-radius: 2rem;
 }
 
 .item-name {
   font-weight: 900;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-family: 'Lato';
   padding: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color:#363636;
+  color: #363636;
 }
 
 .mission-patch-small {
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 span.mission-patch-small img {
-  width: 7rem;
+  width: 5rem;
   height: auto;
+  filter: grayscale(0) opacity(0.3);
 }
 
 .loader {
@@ -124,8 +130,8 @@ span.mission-patch-small img {
 }
 
 .sort-by {
-  background-color: #202020;
-  color: white;
+  background-color: white;
+  /* color: white; */
   padding: 1rem;
   text-transform: uppercase;
   font-weight: 900;
@@ -133,6 +139,8 @@ span.mission-patch-small img {
   letter-spacing: 0.1rem;
   margin-right: 3rem;
   align-self: center;
+  border-radius: 5rem;
+  padding: 1rem 3rem;
 }
 
 .filter-options {
@@ -152,17 +160,19 @@ span.mission-patch-small img {
   background-color: white;
   color: #202020;
   padding: 0.76rem 3rem;
-  font-size: 1.5rem;
+  /* font-size: 1.5rem; */
   align-self: center;
   font-weight: 900;
   font-family: 'Lato';
   letter-spacing: 0.1rem;
-  border: 5px solid #202020;
+  /* border: 5px solid #202020; */
+  padding: 1rem 3rem;
+  border-radius: 5rem;
 }
 
 .launch-details {
   display: flex;
-  margin-top: -2.5rem;
+  margin-top: -0.5rem;
   margin-left: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -170,7 +180,7 @@ span.mission-patch-small img {
 .rocket-details {
   display: flex;
   margin-left: 0.5rem;
- 
+
 
 }
 
@@ -183,18 +193,21 @@ span.mission-patch-small img {
   text-transform: uppercase;
   font-weight: 900;
   letter-spacing: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.03rem;
 
 }
 
 .rocket {
-  padding-left: 3rem;
-  margin-left: -2.5rem;
-
-}
-.launch-year {
+  padding-left: 1rem;
   margin-right: 1rem;
+  border-radius: 2rem;
+  background-color: #9e9e9e;
+}
 
+.launch-year {
+  border-radius: 2rem;
+  padding-left: 1rem;
+  background-color: #9e9e9e;
 }
 
 .item-details {
