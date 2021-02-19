@@ -88,16 +88,17 @@ body {
 }
 
 .item-container {
-  padding: 1.5rem 0 0 2rem;
+  padding: 1.5rem 0 1.5rem 2rem;
   display: flex;
   background-image: linear-gradient(270deg, #ffffff 100%, #363636 0%);
   flex-direction: column;
   width: 44.1rem;
   height: auto;
   margin: 2rem 5rem 2rem -2rem;
-  /* box-shadow: 2px 2px 5px -3px #000000; */
+ 
   /* border: 3px solid #363636; */
   border-radius: 2rem;
+  box-shadow: 1px 1px 7px -6px #000000;
 }
 
 .item-name {
@@ -175,6 +176,7 @@ span.mission-patch-small img {
   margin-top: -0.5rem;
   margin-left: 0.5rem;
   margin-bottom: 1rem;
+
 }
 
 .rocket-details {
@@ -215,4 +217,5 @@ span.mission-patch-small img {
   font-size: 1.4rem;
   line-height: 1.9rem;
   text-align: justify;
+  display:none;
 }
