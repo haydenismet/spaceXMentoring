@@ -28,6 +28,7 @@ body {
 
 #root {
   position: relative;
+  display:flex;
 }
 
 .navbar {
@@ -69,10 +70,19 @@ body {
 .render-category-view,
 .whoops,
 .sort-filter,
-.rockets-section {
+.rockets-section,
+.full-details-view {
   margin-left: 28rem;
   margin-bottom: 2rem;
   display: flex;
+}
+
+.full-details-view {
+  flex-direction: column;
+  align-self: flex-start;
+  height: 100vh;
+  
+ scroll-snap-type: mandatory;
 }
 
 .content-section {
@@ -156,10 +166,10 @@ span.mission-patch-small img {
   padding: 0.5rem;
 }
 
-.filter-options li {
+.filter-options li:first-child {
   border-bottom: 5px solid black;
 }
-.filter-options li:nth-child(2){
+.filter-options{
   margin-bottom:5px;
   border-style:none;
 }

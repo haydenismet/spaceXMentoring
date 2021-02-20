@@ -28,7 +28,6 @@ function Navigation(props) {
         onNavChange={handleNavbarClick}
       ></Sidebar>
       <Headings header={heading}>{heading}</Headings>
-      {props.children}
     </>
   );
 }

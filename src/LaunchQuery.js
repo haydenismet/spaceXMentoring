@@ -31,13 +31,11 @@ const query = gql`
 `;
 
 function LaunchQuery(props) {
-  console.log(props);
   const [data, setData] = useState({ launches: [] });
- 
+
   useEffect(() => {
     async function fetchSpaceX() {
       const response = await request("https://api.spacex.land/graphql", query);
-      console.log(response);
       setData(response);
     }
     fetchSpaceX();
@@ -47,8 +45,9 @@ function LaunchQuery(props) {
     <>
       <SortFilter onSort={props.onFilterChange} spaceData={data} />
       <section className="content-section">
-        <LaunchTemplate spaceData={data} />
+        <LaunchTemplate spaceData={data} selectedItem={props.onSelectedItem}/>
       </section>
+      
     </>
   );
 }

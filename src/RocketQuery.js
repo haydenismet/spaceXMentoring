@@ -34,7 +34,6 @@ function RocketQuery(props) {
   useEffect(() => {
     async function fetchSpaceX() {
       const response = await request("https://api.spacex.land/graphql", query);
-      console.log(response);
       setData(response);
     }
     fetchSpaceX();

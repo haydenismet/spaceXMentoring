@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import LaunchTemplate from "./LaunchTemplate.js";
+import React, { useState} from "react";
+
 
 function SortFilter(props) {
-  console.log(props);
+ 
   const [filter, setFilter] = useState("");
   const [link, setLink] = useState(props.onFilterChange);
 
@@ -10,7 +10,7 @@ function SortFilter(props) {
     setLink(e.target.innerHTML);
   }
 
-  console.log(link);
+ 
 
   function checkFilter() {
     if (props.onSort === "LAUNCHES.") {
