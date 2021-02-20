@@ -2,6 +2,7 @@ import { request, gql } from "graphql-request";
 import { useState, useEffect } from "react";
 import LaunchTemplate from "./LaunchTemplate.js";
 import SortFilter from "./SortFilter.js";
+import FullDetailsTemplate from "./FullDetailsTemplate.js";
 
 const query = gql`
   {
@@ -44,10 +45,11 @@ function LaunchQuery(props) {
   return (
     <>
       <SortFilter onSort={props.onFilterChange} spaceData={data} />
+      <FullDetailsTemplate selectedItem={props.selectedItem} spaceData={data} />
       <section className="content-section">
-        <LaunchTemplate spaceData={data} selectedItem={props.onSelectedItem}/>
+        <LaunchTemplate spaceData={data} handleSelectedItem={props.handleSelectedItem} selectedItem={props.selectedItem}/>
       </section>
-      
+    
     </>
   );
 }

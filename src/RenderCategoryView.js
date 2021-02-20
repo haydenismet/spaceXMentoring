@@ -9,7 +9,7 @@ function RenderCategoryView(props) {
     switch (param) {
       case "LAUNCHES.":
         return (
-          <LaunchQuery onFilterChange={param} onSelectedItem={props.selectedTab}/>
+          <LaunchQuery onFilterChange={param} handleSelectedItem={props.handleSelectedItem} selectedItem={props.selectedItem}/>
         );
       case "ROCKETS.":
         return (
