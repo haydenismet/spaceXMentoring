@@ -7,8 +7,7 @@ function LaunchTemplate(props) {
     return itemDesc.details != null & itemDesc.links.mission_patch_small != null;
   });
 
-  <FullDetailsTemplate clickedItem={props.clickedItem} itemData={validResults}/>
-
+  
   return validResults.map((mission) => (<>
     <div key={mission.id} data-mission-id={mission.id} className="item-container" onClick={props.handleSelectedItem} selectedItem={props.selectedItem}>
       <div className="item-name">
