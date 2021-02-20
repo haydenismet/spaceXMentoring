@@ -2,6 +2,7 @@ import React from "react";
 import { request, gql } from "graphql-request";
 import { useState, useEffect } from "react";
 import RocketTemplate from "./RocketTemplate.js";
+import SortFilter from "./SortFilter.js";
 
 const query = gql`
   {
@@ -41,7 +42,7 @@ function RocketQuery(props) {
 
   return (
     <>
-      {props.children}
+     <SortFilter onSort={props.onFilterChange} spaceData={data} />
       <section className="content-section">
         <RocketTemplate spaceData={data} />
       </section>

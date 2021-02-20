@@ -1,6 +1,7 @@
 import { request, gql } from "graphql-request";
 import { useState, useEffect } from "react";
 import LaunchTemplate from "./LaunchTemplate.js";
+import SortFilter from "./SortFilter.js";
 
 const query = gql`
   {
@@ -30,8 +31,9 @@ const query = gql`
 `;
 
 function LaunchQuery(props) {
+  console.log(props);
   const [data, setData] = useState({ launches: [] });
-
+ 
   useEffect(() => {
     async function fetchSpaceX() {
       const response = await request("https://api.spacex.land/graphql", query);
@@ -43,7 +45,7 @@ function LaunchQuery(props) {
 
   return (
     <>
-      {props.children}
+      <SortFilter onSort={props.onFilterChange} spaceData={data} />
       <section className="content-section">
         <LaunchTemplate spaceData={data} />
       </section>

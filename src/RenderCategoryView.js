@@ -9,15 +9,12 @@ function RenderCategoryView(props) {
     switch (param) {
       case "LAUNCHES.":
         return (
-          <LaunchQuery>
-            <SortFilter onFilterChange={param} />
-          </LaunchQuery>
+          <LaunchQuery onFilterChange={param}/>
         );
       case "ROCKETS.":
         return (
-          <RocketQuery>
-            <SortFilter onFilterChange={param} />
-          </RocketQuery>
+          <RocketQuery onFilterChange={param}/>
+           
         );
       default:
         return <div className="whoops"> Whoops. </div>;
