@@ -29,7 +29,7 @@ body {
 #root {
   position: relative;
   display: flex;
-  overflow-x: hidden;
+  /*overflow-x: hidden;*/
 }
 
 .navbar {
@@ -78,17 +78,29 @@ body {
 }
 
 .full-details-view {
-  top: 21.5rem;
-  left: 80rem;
-  width: 35%;
-  flex-direction: column;
-  position: fixed;
+  top: 0rem;
+  left: 78rem;
+  /* z-index: 999; */
+  width: 40%;
+  /* flex-direction: column; */
+  position: sticky;
   text-align: justify;
+  /* background-color: white; */
+  /* padding: 3rem; */
+  /* height: 65vh; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* box-shadow: 1px 1px 7px -6px #000000; */
+  height: 0;
+}
+
+.detail-list {
+  visibility:hidden;
+}
+
+.selected-mission {
   background-color: white;
-  padding: 3rem;
-  height: 65vh;
-  display: flex;
-  flex-direction: column;
+  padding: 3rem 4.5rem 3.5rem 3.5rem;
   box-shadow: 1px 1px 7px -6px #000000;
 }
 
