@@ -81,7 +81,7 @@ body {
   top: 0rem;
   left: 78rem;
   /* z-index: 999; */
-  width: 40%;
+  width: 30.5%;
   /* flex-direction: column; */
   position: sticky;
   text-align: justify;
@@ -100,7 +100,7 @@ body {
 
 .selected-mission {
   background-color: white;
-  padding: 3rem 4.5rem 3.5rem 3.5rem;
+  padding: 3rem 3.5rem 3.5rem 3.5rem;
   box-shadow: 1px 1px 7px -6px #000000;
 }
 
@@ -244,4 +244,16 @@ span.mission-patch-small img {
 
 .selected-mission {
   list-style-type: none;
+}
+
+.mission-image {
+  margin-bottom:2rem;
+  width:51rem;
+}
+
+.mission-image img {
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+  object-position: top;
 }

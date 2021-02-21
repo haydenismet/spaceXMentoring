@@ -4,7 +4,7 @@ import FullDetailsTemplate from "./FullDetailsTemplate";
 
 function LaunchTemplate(props) {
   let validResults = props.spaceData.launches.filter((itemDesc) => {
-    return itemDesc.details != null & itemDesc.links.mission_patch_small != null && itemDesc.details.length >= 175;
+    return itemDesc.details != null & itemDesc.links.mission_patch_small != null && itemDesc.details.length >= 175 && itemDesc.links.flickr_images.length > 0;
   });
 
   
