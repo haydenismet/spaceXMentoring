@@ -250,7 +250,7 @@ span.mission-patch-small img {
 
 .mission-image {
   margin-bottom:2rem;
-  width:71rem;
+  width:100%;
 }
 
 .mission-image img {
@@ -301,7 +301,5 @@ span.mission-patch-small img {
 }
 
 @media only screen and (max-width: 1368px) {
-  .mission-image img {
-    width:66%;
-  }
+  
 }
