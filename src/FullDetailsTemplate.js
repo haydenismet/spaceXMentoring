@@ -12,13 +12,13 @@ console.log(props);
     <ul className="selected-mission">
       {console.log(filteredSelection)}
       <li className="mission-image"><img src={filteredSelection.links.flickr_images[0]}/></li>
-      <li className="mission-name" key={filteredSelection.mission_name}>{filteredSelection.mission_name}</li>
-      <li className="mission-year" key={filteredSelection.launch_year}>{filteredSelection.launch_year}</li>
-      <li className="mission-details">{filteredSelection.details}</li>
-      
+      <ul className="mission-name-year">
+          <li className="mission-name" key={filteredSelection.mission_name}>{filteredSelection.mission_name}</li>
+          <li className="mission-rocket" key={filteredSelection.rocket.rocket_name}>{filteredSelection.rocket.rocket_name}</li>
+          <li className="mission-year" key={filteredSelection.launch_year}>{filteredSelection.launch_year}</li>
+      </ul>
+      <li className="mission-details" key={filteredSelection.details}>{filteredSelection.details}</li>
     </ul>
-   
-    
   ))}
      
   </section>

@@ -81,7 +81,7 @@ body {
   top: 0rem;
   left: 78rem;
   /* z-index: 999; */
-  width: 30.5%;
+  width: 40%;
   /* flex-direction: column; */
   position: sticky;
   text-align: justify;
@@ -93,6 +93,8 @@ body {
   /* box-shadow: 1px 1px 7px -6px #000000; */
   height: 0;
 }
+
+
 
 .detail-list {
   visibility:hidden;
@@ -248,7 +250,7 @@ span.mission-patch-small img {
 
 .mission-image {
   margin-bottom:2rem;
-  width:51rem;
+  width:71rem;
 }
 
 .mission-image img {
@@ -256,4 +258,38 @@ span.mission-patch-small img {
   height: 30rem;
   object-fit: cover;
   object-position: top;
+}
+
+.selected-mission {
+  font-family: 'Lato';
+}
+
+.mission-name {
+  font-weight:900;
+  font-size:2rem;
+}
+
+.mission-name-year {
+  display:flex;
+  list-style-type: none;
+  justify-content: space-between;
+  margin-bottom:1.5rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  font-size: 1rem;
+}
+
+.mission-year, .mission-rocket {
+  align-self:flex-end;
+  padding:0.5rem 1rem;
+
+    background-color: #9e9e9e;
+    color: white;
+}
+
+@media only screen and (max-width: 1368px) {
+  .mission-image img {
+    width:66%;
+  }
 }
