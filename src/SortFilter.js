@@ -1,4 +1,5 @@
 import React, { useState} from "react";
+import LaunchTemplate from "./LaunchTemplate";
 
 
 function SortFilter(props) {
@@ -10,6 +11,18 @@ function SortFilter(props) {
     setLink(e.target.innerHTML);
   }
 
+
+  function reRenderDate() {
+    if (link === "DATE") {
+      function sortDateOrder() {
+        let filteredData = props.spaceData.launches.sort(
+          (a, b) => a.launch_year - b.launch_year
+        );
+        setFilter(filteredData);
+      }
+      sortDateOrder();
+    }
+  }
  
 
   function checkFilter() {
@@ -31,21 +44,6 @@ function SortFilter(props) {
         </>
       );
     }
-  }
-
-  function reRenderDate() {
-    if (link === "DATE") {
-      function sortDateOrder() {
-        let filteredData = props.spaceData.launches.sort(
-          (a, b) => a.launch_date - b.launch_date
-        );
-        setFilter(filteredData);
-      }
-      sortDateOrder();
-    }
-    filter.forEach((date) => {
-      console.log(date);
-    });
   }
 
   return (
