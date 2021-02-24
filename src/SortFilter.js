@@ -1,10 +1,9 @@
-import React, { useState} from "react";
-import LaunchTemplate from "./LaunchTemplate";
+import React, {useState} from "react";
 
 
 function SortFilter(props) {
  
-  const [filter, setFilter] = useState("");
+  const [filter, setFilter] = useState(props.spaceData);
   const [link, setLink] = useState(props.onFilterChange);
 
   function handleFilterClick(e) {
@@ -26,7 +25,7 @@ function SortFilter(props) {
  
 
   function checkFilter() {
-    if (props.onSort === "LAUNCHES.") {
+    if (props.onFilterChange === "LAUNCHES.") {
       return (
         <>
           <li onClick={reRenderDate}>DATE</li>
@@ -34,7 +33,7 @@ function SortFilter(props) {
           <li>HEIGHT</li>
         </>
       );
-    } else if (props.onSort === "ROCKETS.") {
+    } else if (props.onFilterChange === "ROCKETS.") {
       return (
         <>
           <li>DATE</li>

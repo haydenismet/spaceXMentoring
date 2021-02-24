@@ -44,10 +44,10 @@ function LaunchQuery(props) {
 
   return (
     <>
-      <SortFilter onSort={props.onFilterChange} spaceData={data} />
-      <FullDetailsTemplate selectedItem={props.selectedItem} spaceData={data} />
+      <SortFilter onFilterChange={props.onFilterChange} spaceData={data} handleSelectedItem={props.handleSelectedItem} />
+      <FullDetailsTemplate selectedItem={props.selectedItem} spaceData={data} onFilterChange={props.onFilterChange}/>
       <section className="content-section">
-        <LaunchTemplate spaceData={data} handleSelectedItem={props.handleSelectedItem} selectedItem={props.selectedItem}/>
+        <LaunchTemplate spaceData={data} handleSelectedItem={props.handleSelectedItem} selectedItem={props.selectedItem} />
       </section>
     
     </>

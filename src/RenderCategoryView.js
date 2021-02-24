@@ -13,8 +13,7 @@ function RenderCategoryView(props) {
         );
       case "ROCKETS.":
         return (
-          <RocketQuery onFilterChange={param}/>
-           
+          <RocketQuery onFilterChange={param} handleSelectedItem={props.handleSelectedItem} selectedItem={props.selectedItem}/>
         );
       default:
         return <div className="whoops"> Whoops. </div>;

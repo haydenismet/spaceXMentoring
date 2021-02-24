@@ -3,6 +3,7 @@ import { request, gql } from "graphql-request";
 import { useState, useEffect } from "react";
 import RocketTemplate from "./RocketTemplate.js";
 import SortFilter from "./SortFilter.js";
+import FullDetailsTemplate from "./FullDetailsTemplate.js";
 
 const query = gql`
   {
@@ -41,9 +42,10 @@ function RocketQuery(props) {
 
   return (
     <>
-     <SortFilter onSort={props.onFilterChange} spaceData={data} />
+      <SortFilter onFilterChange={props.onFilterChange} spaceData={data} handleSelectedItem={props.handleSelectedItem} />
+      <FullDetailsTemplate selectedItem={props.selectedItem} spaceData={data} onFilterChange={props.onFilterChange}/>
       <section className="content-section">
-        <RocketTemplate spaceData={data} />
+        <RocketTemplate spaceData={data} handleSelectedItem={props.handleSelectedItem} selectedItem={props.selectedItem} onFilterChange={props.onFilterChange}/>
       </section>
     </>
   );

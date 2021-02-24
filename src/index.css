@@ -71,7 +71,8 @@ body {
 .render-category-view,
 .whoops,
 .sort-filter,
-.rockets-section {
+.rockets-section,
+.temporary-rocket-full {
   margin-left: 28rem;
   margin-bottom: 2rem;
   display: flex;
