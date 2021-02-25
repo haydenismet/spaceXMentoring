@@ -1,6 +1,6 @@
 import { request, gql } from "graphql-request";
 import { useState, useEffect } from "react";
-import LaunchTemplate from "./LaunchTemplate.js";
+import TemplateList from "./TemplateList.js";
 import SortFilter from "./SortFilter.js";
 import FullDetailsTemplate from "./FullDetailsTemplate.js";
 
@@ -44,12 +44,24 @@ function LaunchQuery(props) {
 
   return (
     <>
-      <SortFilter onFilterChange={props.onFilterChange} spaceData={data} handleSelectedItem={props.handleSelectedItem} />
-      <FullDetailsTemplate selectedItem={props.selectedItem} spaceData={data} onFilterChange={props.onFilterChange}/>
+      <SortFilter
+        onFilterChange={props.onFilterChange}
+        spaceData={data}
+        handleSelectedItem={props.handleSelectedItem}
+      />
+      <FullDetailsTemplate
+        selectedItem={props.selectedItem}
+        spaceData={data}
+        onFilterChange={props.onFilterChange}
+      />
       <section className="content-section">
-        <LaunchTemplate spaceData={data} handleSelectedItem={props.handleSelectedItem} selectedItem={props.selectedItem} />
+        <TemplateList
+          spaceData={data}
+          handleSelectedItem={props.handleSelectedItem}
+          selectedItem={props.selectedItem}
+          onFilterChange={props.onFilterChange}
+        />
       </section>
-    
     </>
   );
 }

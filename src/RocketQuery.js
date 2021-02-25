@@ -1,7 +1,7 @@
 import React from "react";
 import { request, gql } from "graphql-request";
 import { useState, useEffect } from "react";
-import RocketTemplate from "./RocketTemplate.js";
+import TemplateList from "./TemplateList.js";
 import SortFilter from "./SortFilter.js";
 import FullDetailsTemplate from "./FullDetailsTemplate.js";
 
@@ -42,10 +42,23 @@ function RocketQuery(props) {
 
   return (
     <>
-      <SortFilter onFilterChange={props.onFilterChange} spaceData={data} handleSelectedItem={props.handleSelectedItem} />
-      <FullDetailsTemplate selectedItem={props.selectedItem} spaceData={data} onFilterChange={props.onFilterChange}/>
+      <SortFilter
+        onFilterChange={props.onFilterChange}
+        spaceData={data}
+        handleSelectedItem={props.handleSelectedItem}
+      />
+      <FullDetailsTemplate
+        selectedItem={props.selectedItem}
+        spaceData={data}
+        onFilterChange={props.onFilterChange}
+      />
       <section className="content-section">
-        <RocketTemplate spaceData={data} handleSelectedItem={props.handleSelectedItem} selectedItem={props.selectedItem} onFilterChange={props.onFilterChange}/>
+        <TemplateList
+          spaceData={data}
+          handleSelectedItem={props.handleSelectedItem}
+          selectedItem={props.selectedItem}
+          onFilterChange={props.onFilterChange}
+        />
       </section>
     </>
   );

@@ -206,12 +206,13 @@ span.mission-patch-small img {
 .rocket-details {
   display: flex;
   margin-left: 0.5rem;
+  margin-top:1rem;
 }
 
 .rocket,
 .launch-year,
 .launch-success {
-  background-color: #363636;
+ 
   padding: 0.5rem 1rem;
   color: white;
   text-transform: uppercase;
@@ -229,6 +230,12 @@ span.mission-patch-small img {
 .launch-year {
   padding-left: 1rem;
   background-color: #9e9e9e;
+}
+
+.launch-success {
+  padding-left:1rem;
+  background-color: #9e9e9e;
+  margin-left:1rem;
 }
 
 .item-details {
