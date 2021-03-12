@@ -3,8 +3,7 @@ import React, {useState} from "react";
 
 function SortFilter(props) {
  
-  const [filter, setFilter] = useState(props.spaceData);
-  const [link, setLink] = useState(props.onFilterChange);
+  const [link, setLink] = useState("");
 
   function handleFilterClick(e) {
     setLink(e.target.innerHTML);
@@ -13,19 +12,16 @@ function SortFilter(props) {
 
   function reRenderDate() {
     if (link === "DATE") {
-      function sortDateOrder() {
         let filteredData = props.spaceData.launches.sort(
           (a, b) => a.launch_year - b.launch_year
         );
-        setFilter(filteredData);
-      }
-      sortDateOrder();
+       props.onFilterChange(filteredData);
     }
   }
  
 
   function checkFilter() {
-    if (props.onFilterChange === "LAUNCHES.") {
+    if (props.section === "LAUNCHES.") {
       return (
         <>
           <li onClick={reRenderDate}>DATE</li>
@@ -33,7 +29,7 @@ function SortFilter(props) {
           <li>HEIGHT</li>
         </>
       );
-    } else if (props.onFilterChange === "ROCKETS.") {
+    } else if (props.section === "ROCKETS.") {
       return (
         <>
           <li>DATE</li>

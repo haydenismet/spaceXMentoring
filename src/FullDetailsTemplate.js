@@ -87,9 +87,9 @@ function FullDetailsTemplate(props) {
     );
   }
 
-  if (props.onFilterChange === "LAUNCHES.") {
+  if (props.section === "LAUNCHES.") {
     return launchFullDetails();
-  } else if (props.onFilterChange === "ROCKETS.") {
+  } else if (props.section === "ROCKETS.") {
     return rocketFullDetails();
   } else {
     return <div className="full-details-view"> Error.</div>;

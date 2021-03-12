@@ -1,6 +1,11 @@
 import React from "react";
 
 function TemplateList(props) {
+
+  function onSelectedItem(e) {
+    props.onSelectedItem(e.currentTarget.getAttribute("data-mission-id"));
+  }
+  
   function launchTemplateList() {
     let validResults = props.spaceData.launches.filter((itemDesc) => {
       return (
@@ -10,14 +15,18 @@ function TemplateList(props) {
         itemDesc.links.flickr_images.length > 0
       );
     });
+
+    if(validResults.length === 0) {
+      return <div>Loading...</div>
+    }
+
     return validResults.map((mission) => (
       <>
         <div
           key={mission.id}
           data-mission-id={mission.id}
           className="item-container"
-          onClick={props.handleSelectedItem}
-          selectedItem={props.selectedItem}
+          onClick={onSelectedItem}
         >
           <div className="item-name">
             {mission.mission_name}
@@ -44,7 +53,7 @@ function TemplateList(props) {
         className="item-container"
         key={rocket.id}
         data-mission-id={rocket.id}
-        onClick={props.handleSelectedItem}
+        onClick={onSelectedItem}
         selectedItem={props.selectedItem}
       >
         <div className="item-name">{rocket.name}</div>
@@ -59,11 +68,13 @@ function TemplateList(props) {
     ));
   }
 
-  console.log(props.onFilterChange);
-  if (props.onFilterChange === "LAUNCHES.") {
+
+  if (props.section === "LAUNCHES.") {
     return launchTemplateList();
-  } else if (props.onFilterChange === "ROCKETS.") {
+  } else if (props.section === "ROCKETS.") {
     return rocketTemplateList();
+  } else {
+    return <div></div>
   }
 }
 

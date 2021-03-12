@@ -4,11 +4,6 @@ import RenderCategoryView from "./RenderCategoryView.js";
 
 function SpaceX() {
   const [header, setHeader] = useState("ABOUT.");
-  const [selectedItem, setItem] = useState("");
-
-  function handleSelectedItem(e) {
-    setItem(e.currentTarget.getAttribute("data-mission-id"));
-  }
 
   return (
     <>
@@ -16,8 +11,6 @@ function SpaceX() {
         <Navigation onHeaderChange={setHeader} />
         <RenderCategoryView
           header={header}
-          handleSelectedItem={handleSelectedItem}
-          selectedItem={selectedItem}
         />
       </section>
     </>

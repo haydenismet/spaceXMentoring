@@ -33,7 +33,8 @@ const query = gql`
 
 function LaunchQuery(props) {
   const [data, setData] = useState({ launches: [] });
-
+  const [item, setItem] = useState("");
+  
   useEffect(() => {
     async function fetchSpaceX() {
       const response = await request("https://api.spacex.land/graphql", query);
@@ -42,24 +43,24 @@ function LaunchQuery(props) {
     fetchSpaceX();
   }, []);
 
+  console.log('[Logging item prop]',item);
   return (
     <>
       <SortFilter
-        onFilterChange={props.onFilterChange}
+        section={"LAUNCHES."}
         spaceData={data}
-        handleSelectedItem={props.handleSelectedItem}
+        onFilterChange={setData}
       />
       <FullDetailsTemplate
-        selectedItem={props.selectedItem}
+        selectedItem={item}
         spaceData={data}
-        onFilterChange={props.onFilterChange}
       />
       <section className="content-section">
         <TemplateList
+          section={"LAUNCHES."}
           spaceData={data}
-          handleSelectedItem={props.handleSelectedItem}
-          selectedItem={props.selectedItem}
-          onFilterChange={props.onFilterChange}
+          onSelectedItem={setItem}
+          selectedItem={item}
         />
       </section>
     </>

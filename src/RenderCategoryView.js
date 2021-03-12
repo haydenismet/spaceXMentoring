@@ -3,23 +3,18 @@ import LaunchQuery from "./LaunchQuery.js";
 import RocketQuery from "./RocketQuery.js";
 
 function RenderCategoryView(props) {
+
+  
+
   function renderSwitch(param) {
     switch (param) {
       case "LAUNCHES.":
         return (
-          <LaunchQuery
-            onFilterChange={param}
-            handleSelectedItem={props.handleSelectedItem}
-            selectedItem={props.selectedItem}
-          />
+          <LaunchQuery/>
         );
       case "ROCKETS.":
         return (
-          <RocketQuery
-            onFilterChange={param}
-            handleSelectedItem={props.handleSelectedItem}
-            selectedItem={props.selectedItem}
-          />
+          <RocketQuery/>
         );
       default:
         return <div className="whoops"> Whoops. </div>;
