@@ -14,26 +14,26 @@ function FullDetailsTemplate(props) {
             .map((filteredSelection) => (
               <ul className="selected-mission">
                 <li className="mission-image">
-                  <img src={filteredSelection.links.flickr_images[0]} />
+                  <img src={filteredSelection.image} />
                 </li>
                 <ul className="mission-name-year">
                   <li
                     className="mission-name"
-                    key={filteredSelection.mission_name}
+                    key={filteredSelection.missionName}
                   >
-                    {filteredSelection.mission_name}
+                    {filteredSelection.missionName}
                   </li>
                   <li
                     className="mission-rocket"
-                    key={filteredSelection.rocket.rocket_name}
+                    key={filteredSelection.rocketName}
                   >
-                    {filteredSelection.rocket.rocket_name}
+                    {filteredSelection.rocketName}
                   </li>
                   <li
                     className="mission-year"
-                    key={filteredSelection.launch_year}
+                    key={filteredSelection.year}
                   >
-                    {filteredSelection.launch_year}
+                    {filteredSelection.year}
                   </li>
                 </ul>
                 <li className="mission-details" key={filteredSelection.details}>
