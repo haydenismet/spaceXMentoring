@@ -7,12 +7,12 @@ function TemplateList(props) {
   }
   
   function launchTemplateList() {
-    let validResults = props.spaceData.launches.filter((itemDesc) => {
+    let validResults = props.spaceData.filter((itemDesc) => {
       return (
         (itemDesc.details != null) &
-          (itemDesc.links.mission_patch_small != null) &&
+          (itemDesc.smallImage != null) &&
         itemDesc.details.length >= 175 &&
-        itemDesc.links.flickr_images.length > 0
+        itemDesc.image != null
       );
     });
 
@@ -29,17 +29,18 @@ function TemplateList(props) {
           onClick={onSelectedItem}
         >
           <div className="item-name">
-            {mission.mission_name}
+            {mission.missionName}
+            {mission.smallImage ?
             <span className="mission-patch-small">
               <img
-                src={mission.links.mission_patch_small}
+                src={mission.smallImage}
                 alt="mission patch"
               />
-            </span>
+            </span> : null }
           </div>
           <div className="launch-details">
-            <div className="rocket">{mission.rocket.rocket_name}</div>
-            <div className="launch-year">{mission.launch_year}</div>
+            <div className="rocket">{mission.rocketName}</div>
+            <div className="launch-year">{mission.year}</div>
           </div>
           <div className="item-details">{mission.details}</div>
         </div>

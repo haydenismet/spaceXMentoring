@@ -31,6 +31,7 @@ const query = gql`
 
 function RocketQuery(props) {
   const [data, setData] = useState({ rockets: [] });
+  const [item, setItem] = useState("");
 
   useEffect(() => {
     async function fetchSpaceX() {
@@ -40,27 +41,29 @@ function RocketQuery(props) {
     fetchSpaceX();
   }, []);
 
+  console.log(data);
+    console.log('[Logging item prop]',item,' [data]',data);
   return (
     <>
-      <SortFilter
-        onFilterChange={props.onFilterChange}
+    <SortFilter
+      section={"ROCKETS."}
+      spaceData={data}
+      onFilterChange={setData}
+    />
+    <FullDetailsTemplate
+      selectedItem={item}
+      spaceData={data}
+      section={"ROCKETS."}
+    />
+    <section className="content-section">
+      <TemplateList
+        section={"ROCKETS."}
         spaceData={data}
-        handleSelectedItem={props.handleSelectedItem}
+        onSelectedItem={setItem}
+        selectedItem={item}
       />
-      <FullDetailsTemplate
-        selectedItem={props.selectedItem}
-        spaceData={data}
-        onFilterChange={props.onFilterChange}
-      />
-      <section className="content-section">
-        <TemplateList
-          spaceData={data}
-          handleSelectedItem={props.handleSelectedItem}
-          selectedItem={props.selectedItem}
-          onFilterChange={props.onFilterChange}
-        />
-      </section>
-    </>
+    </section>
+  </>
   );
 }
 

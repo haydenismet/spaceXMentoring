@@ -7,7 +7,7 @@ function FullDetailsTemplate(props) {
       <>
         <section className="full-details-view">
           <div className="detail-list">detail-list</div>
-          {props.spaceData.launches
+          {props.spaceData
             .filter(
               (selectedMission) => selectedMission.id === props.selectedItem
             )

@@ -15,7 +15,7 @@ function SortFilter(props) {
         let filteredData = props.spaceData.launches.sort(
           (a, b) => a.launch_year - b.launch_year
         );
-       props.onFilterChange(filteredData);
+       props.onFilterChange({...props.spaceData, launches:filteredData});
     }
   }
  

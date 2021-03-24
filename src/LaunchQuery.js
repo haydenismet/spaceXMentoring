@@ -43,7 +43,20 @@ function LaunchQuery(props) {
     fetchSpaceX();
   }, []);
 
-  console.log('[Logging item prop]',item);
+  console.log(data);
+  const commonData = data.launches.map((obj) => (
+    {id : obj.id,
+     image : obj.links.flickr_images[0],
+     missionName : obj.mission_name,
+     rocketName : obj.rocket.rocket.name,
+     year : obj.launch_year,
+     details : obj.details,
+     smallImage : obj.links.mission_patch_small
+    }
+  ));
+
+  console.log(commonData);
+  
   return (
     <>
       <SortFilter
@@ -53,12 +66,13 @@ function LaunchQuery(props) {
       />
       <FullDetailsTemplate
         selectedItem={item}
-        spaceData={data}
+        spaceData={commonData}
+        section={"LAUNCHES."}
       />
       <section className="content-section">
         <TemplateList
           section={"LAUNCHES."}
-          spaceData={data}
+          spaceData={commonData}
           onSelectedItem={setItem}
           selectedItem={item}
         />
