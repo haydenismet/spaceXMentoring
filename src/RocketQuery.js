@@ -42,7 +42,18 @@ function RocketQuery(props) {
   }, []);
 
   console.log(data);
-    console.log('[Logging item prop]',item,' [data]',data);
+  const commonData = data.rockets.map((obj) => (
+    {id : obj.id,
+     rocketName : obj.name,
+     year : obj.first_flight,
+     details : obj.description,
+     mass : obj.mass.kg,
+     height: obj.height.feet,
+     cost : obj.cost_per_launch,
+     success : obj.success_rate_pct
+    }
+  ));
+    console.log('[Logging item prop]',item,' [commonData]',commonData);
   return (
     <>
     <SortFilter
@@ -52,13 +63,13 @@ function RocketQuery(props) {
     />
     <FullDetailsTemplate
       selectedItem={item}
-      spaceData={data}
+      spaceData={commonData}
       section={"ROCKETS."}
     />
     <section className="content-section">
       <TemplateList
         section={"ROCKETS."}
-        spaceData={data}
+        spaceData={commonData}
         onSelectedItem={setItem}
         selectedItem={item}
       />

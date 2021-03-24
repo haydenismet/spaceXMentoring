@@ -51,34 +51,33 @@ function FullDetailsTemplate(props) {
       <>
         <section className="full-details-view">
           <div className="detail-list">detail-list</div>
-          {props.spaceData.rockets
-            .filter(
+          {props.spaceData.filter(
               (selectedRocket) => selectedRocket.id === props.selectedItem
             )
             .map((filteredSelection) => (
               <ul className="selected-mission">
                 <ul className="mission-name-year">
-                  <li className="mission-name" key={filteredSelection.name}>
-                    {filteredSelection.name}
+                  <li className="mission-name" key={filteredSelection.rocketName}>
+                    {filteredSelection.rocketName}
                   </li>
                   <li
                     className="mission-rocket"
-                    key={filteredSelection.mass.kg}
+                    key={filteredSelection.mass}
                   >
-                    {filteredSelection.mass.kg} KG
+                    {filteredSelection.mass} KG
                   </li>
                   <li
                     className="mission-year"
-                    key={filteredSelection.first_flight}
+                    key={filteredSelection.year}
                   >
-                    {filteredSelection.first_flight}
+                    {filteredSelection.year}
                   </li>
                 </ul>
                 <li
                   className="mission-details"
-                  key={filteredSelection.description}
+                  key={filteredSelection.details}
                 >
-                  {filteredSelection.description}
+                  {filteredSelection.details}
                 </li>
               </ul>
             ))}

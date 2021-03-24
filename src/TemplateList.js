@@ -49,7 +49,7 @@ function TemplateList(props) {
   }
 
   function rocketTemplateList() {
-    return props.spaceData.rockets.map((rocket) => (
+    return props.spaceData.map((rocket) => (
       <div
         className="item-container"
         key={rocket.id}
@@ -57,14 +57,14 @@ function TemplateList(props) {
         onClick={onSelectedItem}
         selectedItem={props.selectedItem}
       >
-        <div className="item-name">{rocket.name}</div>
+        <div className="item-name">{rocket.rocketName}</div>
         <div className="rocket-details">
-          <div className="launch-year">{rocket.first_flight}</div>
+          <div className="launch-year">{rocket.year}</div>
           <div className="launch-success">
-            {rocket.success_rate_pct}% Success Rate
+            {rocket.success}% Success Rate
           </div>
         </div>
-        <div className="item-details">{rocket.description}</div>
+        <div className="item-details">{rocket.details}</div>
       </div>
     ));
   }

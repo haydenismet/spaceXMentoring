@@ -3,7 +3,7 @@ import React, {useState} from "react";
 
 function SortFilter(props) {
  
-  const [link, setLink] = useState("");
+  const [link, setLink] = useState("DATE");
 
   function handleFilterClick(e) {
     setLink(e.target.innerHTML);
