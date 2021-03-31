@@ -1,6 +1,7 @@
 import React from "react";
 import LaunchQuery from "./LaunchQuery.js";
 import RocketQuery from "./RocketQuery.js";
+import ShipQuery from "./ShipQuery.js";
 
 function RenderCategoryView(props) {
 
@@ -16,6 +17,10 @@ function RenderCategoryView(props) {
         return (
           <RocketQuery/>
         );
+        case "SHIPS.":
+          return (
+            <ShipQuery/>
+          );
       default:
         return <div className="whoops"> Whoops. </div>;
     }

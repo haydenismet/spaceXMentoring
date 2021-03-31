@@ -3,7 +3,7 @@ import Sidebar from "./Sidebar.js";
 import Headings from "./Headings.js";
 
 function Navigation(props) {
-  const [heading, setHeading] = useState("ABOUT.");
+  const [heading, setHeading] = useState("LAUNCHES.");
 
   function handleNavbarClick(e) {
     console.log(e.target.getAttribute("data-id"));
@@ -19,12 +19,10 @@ function Navigation(props) {
   return (
     <>
       <Sidebar
-        navOne="ABOUT."
-        navTwo="MISSIONS."
         navThree="LAUNCHES."
         navFour="ROCKETS."
         navFive="SHIPS."
-        navSix="COMPANY."
+        navSix="ABOUT."
         onNavChange={handleNavbarClick}
       ></Sidebar>
       <Headings header={heading}>{heading}</Headings>

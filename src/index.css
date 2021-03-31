@@ -123,6 +123,7 @@ body {
   height: 18rem;
   margin: 2rem 5rem 2rem -2rem;
   box-shadow: 1px 1px 7px -6px #000000;
+  cursor:pointer;
 }
 
 .item-name {
@@ -163,7 +164,7 @@ span.mission-patch-small img {
   letter-spacing: 0.1rem;
   margin-right: 3rem;
   align-self: center;
-
+  margin-bottom: 5px;
   font-size: 1.7rem;
 }
 
@@ -188,9 +189,10 @@ span.mission-patch-small img {
   padding: 0.5rem;
 }
 
-.filter-options li:first-child {
+.filter-options li[aria-selected] {
   border-bottom: 5px solid black;
 }
+
 .filter-options {
   margin-bottom: 5px;
   border-style: none;
@@ -198,7 +200,7 @@ span.mission-patch-small img {
 
 .launch-details {
   display: flex;
-  margin-top: -0.5rem;
+  margin-top: 0.5rem;
   margin-left: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -277,6 +279,7 @@ span.mission-patch-small img {
   font-size:1.6rem;
   flex:1;
   align-self:center;
+  letter-spacing:0.1rem;
 }
 
 .mission-name-year {
@@ -307,6 +310,8 @@ span.mission-patch-small img {
     color: #424242;
     word-spacing: 0.2rem;
 }
+
+
 
 @media only screen and (max-width: 1368px) {
   

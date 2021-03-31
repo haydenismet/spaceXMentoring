@@ -43,8 +43,8 @@ function LaunchQuery(props) {
     fetchSpaceX();
   }, []);
 
-  console.log(data);
-  const commonData = data.launches.map((obj) => (
+
+  let commonData = data.launches.map((obj) => (
     {id : obj.id,
      image : obj.links.flickr_images[0],
      missionName : obj.mission_name,
@@ -55,7 +55,7 @@ function LaunchQuery(props) {
     }
   ));
 
-  console.log(commonData);
+ 
   
   return (
     <>

@@ -1,82 +1,66 @@
-import React from "react";
+import React, {useRef} from "react";
 
 function TemplateList(props) {
-
+  const itemContainer  = useRef();
   function onSelectedItem(e) {
     props.onSelectedItem(e.currentTarget.getAttribute("data-mission-id"));
   }
-  
-  function launchTemplateList() {
-    let validResults = props.spaceData.filter((itemDesc) => {
-      return (
-        (itemDesc.details != null) &
-          (itemDesc.smallImage != null) &&
-        itemDesc.details.length >= 175 &&
-        itemDesc.image != null
-      );
-    });
 
-    if(validResults.length === 0) {
-      return <div>Loading...</div>
+  function launchTemplateList() {
+    let validResults = props.spaceData;
+    if (props.section === "LAUNCHES.") {
+      validResults = props.spaceData.filter((itemDesc) => {
+        return (
+          (itemDesc.details != null) & (itemDesc.smallImage != null) &&
+          itemDesc.details.length >= 175 &&
+          itemDesc.image != null
+        );
+      });
+    } else if (props.section === "ROCKETS.") {
+      validResults = props.spaceData.filter((itemDesc) => {
+        return (
+          itemDesc.details.length >= 160
+        );
+      });
+    } 
+    if (validResults.length === 0) {
+      return <div>Loading...</div>;
     }
 
-    return validResults.map((mission) => (
+  
+    
+
+    return validResults.map((data) => (
       <>
         <div
-          key={mission.id}
-          data-mission-id={mission.id}
+          key={data.id}
+          data-mission-id={data.id}
           className="item-container"
           onClick={onSelectedItem}
+          ref={itemContainer}
         >
           <div className="item-name">
-            {mission.missionName}
-            {mission.smallImage ?
-            <span className="mission-patch-small">
-              <img
-                src={mission.smallImage}
-                alt="mission patch"
-              />
-            </span> : null }
+            {(data.missionName) ? (data.missionName) : ((data.rocketName) ? (data.rocketName) : (data.shipName)) }
+            {data.smallImage ? (
+              <span className="mission-patch-small">
+                <img src={data.smallImage} alt="mission patch" />
+              </span>
+            ) : null}
           </div>
           <div className="launch-details">
-            <div className="rocket">{mission.rocketName}</div>
-            <div className="launch-year">{mission.year}</div>
+            <div className="rocket">{(data.rocketName) ? (data.rocketName) : data.roles[0]}</div>
+            <div className="launch-year">{(data.year) ? (data.year) : ((data.active) ? ('ACTIVE') : ('INACTIVE'))}</div>
           </div>
-          <div className="item-details">{mission.details}</div>
+          
+          <div className="item-details">
+          {(data.details) ? (data.details) : null}
+            </div>
         </div>
       </>
     ));
   }
 
-  function rocketTemplateList() {
-    return props.spaceData.map((rocket) => (
-      <div
-        className="item-container"
-        key={rocket.id}
-        data-mission-id={rocket.id}
-        onClick={onSelectedItem}
-        selectedItem={props.selectedItem}
-      >
-        <div className="item-name">{rocket.rocketName}</div>
-        <div className="rocket-details">
-          <div className="launch-year">{rocket.year}</div>
-          <div className="launch-success">
-            {rocket.success}% Success Rate
-          </div>
-        </div>
-        <div className="item-details">{rocket.details}</div>
-      </div>
-    ));
-  }
-
-
-  if (props.section === "LAUNCHES.") {
-    return launchTemplateList();
-  } else if (props.section === "ROCKETS.") {
-    return rocketTemplateList();
-  } else {
-    return <div></div>
-  }
+  return launchTemplateList();
 }
 
 export default TemplateList;

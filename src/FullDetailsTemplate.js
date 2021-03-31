@@ -1,7 +1,6 @@
 import React from "react";
 
 function FullDetailsTemplate(props) {
-  
   function launchFullDetails() {
     return (
       <>
@@ -13,28 +12,40 @@ function FullDetailsTemplate(props) {
             )
             .map((filteredSelection) => (
               <ul className="selected-mission">
-                <li className="mission-image">
-                  <img src={filteredSelection.image} />
-                </li>
+                {filteredSelection.image ? (
+                  <li className="mission-image">
+                    <img src={filteredSelection.image} />
+                  </li>
+                ) : null}
+
                 <ul className="mission-name-year">
-                  <li
-                    className="mission-name"
-                    key={filteredSelection.missionName}
-                  >
-                    {filteredSelection.missionName}
-                  </li>
-                  <li
-                    className="mission-rocket"
-                    key={filteredSelection.rocketName}
-                  >
-                    {filteredSelection.rocketName}
-                  </li>
-                  <li
-                    className="mission-year"
-                    key={filteredSelection.year}
-                  >
-                    {filteredSelection.year}
-                  </li>
+                  {filteredSelection.missionName && filteredSelection.rocketName ? (
+                    <>
+                    <li className="mission-name">
+                      {filteredSelection.missionName}
+                    </li>
+                    <li className="mission-rocket">
+                      {filteredSelection.rocketName}
+                    </li>
+                    </>
+                  ) : (
+                    <>
+                    <li className="mission-name">
+                      {filteredSelection.rocketName}
+                    </li>
+                    <li className="mission-rocket">
+                      {filteredSelection.height.toFixed()}ft
+                    </li>
+                    <li className="mission-rocket">
+                      {filteredSelection.mass}kg
+                    </li>
+                    <li className="mission-rocket">
+                      ${filteredSelection.cost}
+                    </li>
+                    </>
+                  )}
+
+                  <li className="mission-year">{filteredSelection.year}</li>
                 </ul>
                 <li className="mission-details" key={filteredSelection.details}>
                   {filteredSelection.details}
@@ -46,52 +57,6 @@ function FullDetailsTemplate(props) {
     );
   }
 
-  function rocketFullDetails() {
-    return (
-      <>
-        <section className="full-details-view">
-          <div className="detail-list">detail-list</div>
-          {props.spaceData.filter(
-              (selectedRocket) => selectedRocket.id === props.selectedItem
-            )
-            .map((filteredSelection) => (
-              <ul className="selected-mission">
-                <ul className="mission-name-year">
-                  <li className="mission-name" key={filteredSelection.rocketName}>
-                    {filteredSelection.rocketName}
-                  </li>
-                  <li
-                    className="mission-rocket"
-                    key={filteredSelection.mass}
-                  >
-                    {filteredSelection.mass} KG
-                  </li>
-                  <li
-                    className="mission-year"
-                    key={filteredSelection.year}
-                  >
-                    {filteredSelection.year}
-                  </li>
-                </ul>
-                <li
-                  className="mission-details"
-                  key={filteredSelection.details}
-                >
-                  {filteredSelection.details}
-                </li>
-              </ul>
-            ))}
-        </section>
-      </>
-    );
-  }
-
-  if (props.section === "LAUNCHES.") {
-    return launchFullDetails();
-  } else if (props.section === "ROCKETS.") {
-    return rocketFullDetails();
-  } else {
-    return <div className="full-details-view"> Error.</div>;
-  }
+return launchFullDetails();
 }
 export default FullDetailsTemplate;
