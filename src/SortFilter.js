@@ -15,19 +15,19 @@ function SortFilter(props) {
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
     } else if (link === "NAME") {
-      let filteredData = props.spaceData.sort((a, b) =>
+      let filteredData = ([...props.spaceData]).sort((a, b) =>
         a.missionName > b.missionName ? 1 : -1
       );
       props.onFilterChange(filteredData);
       console.log("[namesort]", filteredData);
     } else if (link === "SUCCESS") {
-      let filteredData = props.spaceData.filter(
+      let filteredData = ([...props.spaceData]).filter(
         (a) => a.missionSuccess === true
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
     } else if (link === "FAILURE") {
-      let filteredData = props.spaceData.filter(
+      let filteredData = ([...props.spaceData]).filter(
         (a) => a.missionSuccess === false
       );
       props.onFilterChange(filteredData);
@@ -40,13 +40,13 @@ function SortFilter(props) {
       console.log("[Filter sort onclick]", filteredData);
     } 
     else if (link === "HEIGHT") {
-      let filteredData = props.spaceData.sort((a,b) => a.height - b.height 
+      let filteredData = ([...props.spaceData]).sort((a,b) => a.height - b.height 
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
     }
     else if (link === "MASS") {
-      let filteredData = props.spaceData.sort((a,b) => a.mass - b.mass 
+      let filteredData = ([...props.spaceData]).sort((a,b) => a.mass - b.mass 
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);

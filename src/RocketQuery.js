@@ -30,30 +30,28 @@ const query = gql`
 `;
 
 function RocketQuery(props) {
-  const [data, setData] = useState({ rockets: [] });
+  const [data, setData] = useState([]);
   const [item, setItem] = useState("");
 
   useEffect(() => {
     async function fetchSpaceX() {
       const response = await request("https://api.spacex.land/graphql", query);
-      setData(response);
+      let commonData = response.rockets.map((obj) => (
+        {id : obj.id,
+         rocketName : obj.name,
+         year : obj.first_flight,
+         details : obj.description,
+         mass : obj.mass.kg,
+         height: obj.height.feet,
+         cost : obj.cost_per_launch,
+         success : obj.success_rate_pct
+        }
+      ));
+      setData(commonData);
     }
     fetchSpaceX();
   }, []);
 
-  console.log(data);
-  const commonData = data.rockets.map((obj) => (
-    {id : obj.id,
-     rocketName : obj.name,
-     year : obj.first_flight,
-     details : obj.description,
-     mass : obj.mass.kg,
-     height: obj.height.feet,
-     cost : obj.cost_per_launch,
-     success : obj.success_rate_pct
-    }
-  ));
-    console.log('[Logging item prop]',item,' [commonData]',commonData);
   return (
     <>
     <SortFilter
@@ -63,13 +61,13 @@ function RocketQuery(props) {
     />
     <FullDetailsTemplate
       selectedItem={item}
-      spaceData={commonData}
+      spaceData={data}
       section={"ROCKETS."}
     />
     <section className="content-section">
       <TemplateList
         section={"ROCKETS."}
-        spaceData={commonData}
+        spaceData={data}
         onSelectedItem={setItem}
         selectedItem={item}
       />

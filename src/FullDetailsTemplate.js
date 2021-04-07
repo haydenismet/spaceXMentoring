@@ -12,12 +12,11 @@ function FullDetailsTemplate(props) {
             )
             .map((filteredSelection) => (
               <ul className="selected-mission">
-                {filteredSelection.image ? (
+                {filteredSelection.image && filteredSelection.image !== null ? (
                   <li className="mission-image">
                     <img src={filteredSelection.image} />
                   </li>
                 ) : null}
-
                 <ul className="mission-name-year">
                   {filteredSelection.missionName && filteredSelection.rocketName ? (
                     <>
@@ -28,7 +27,7 @@ function FullDetailsTemplate(props) {
                       {filteredSelection.rocketName}
                     </li>
                     </>
-                  ) : (
+                  ) : ((!filteredSelection.shipName) ? (
                     <>
                     <li className="mission-name">
                       {filteredSelection.rocketName}
@@ -41,15 +40,27 @@ function FullDetailsTemplate(props) {
                     </li>
                     <li className="mission-rocket">
                       ${filteredSelection.cost}
+                    </li> 
+                    <li className="mission-year">{filteredSelection.year}</li>
+                    </> ) :  
+                    <>
+                    <li className="mission-name">
+                      {filteredSelection.shipName}
+                    </li>
+                    <li className="mission-rocket">
+                      {filteredSelection.roles[0]}
+                    </li>
+                    <li className="mission-rocket">
+                      {filteredSelection.active === true ? 'ACTIVE' : 'INACTIVE'}
                     </li>
                     </>
                   )}
-
-                  <li className="mission-year">{filteredSelection.year}</li>
                 </ul>
+                {filteredSelection.details ?
                 <li className="mission-details" key={filteredSelection.details}>
                   {filteredSelection.details}
                 </li>
+                : null}
               </ul>
             ))}
         </section>

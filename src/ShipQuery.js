@@ -18,27 +18,29 @@ const query = gql`
 `;
 
 function ShipQuery(props) {
-  const [data, setData] = useState({ ships: [] });
+  const [data, setData] = useState([]);
   const [item, setItem] = useState("");
 
   useEffect(() => {
     async function fetchSpaceX() {
-      const response = await request("https://api.spacex.land/graphql", query);
-      setData(response);
+      const response = await request("https://api.spacex.land/graphql", query);   
+      console.log(response);
+      let commonData = response.ships.map((obj) => (
+        {id : obj.id,
+        shipName : obj.name,
+        image : obj.image && obj.image !== null && obj.image.length > 0 ? obj.image : null,
+        active : obj.active,
+        roles : obj.roles
+        }
+      ));
+      setData(commonData);
+      console.log(commonData);
     }
     fetchSpaceX();
   }, []);
 
-  console.log(data);
-  const commonData = data.ships.map((obj) => (
-    {id : obj.id,
-     shipName : obj.name,
-     image : obj.image,
-     active : obj.active,
-     roles : obj.roles
-    }
-  ));
-    console.log('[Logging item prop]',item,' [commonData]',commonData);
+
+
   return (
     <>
     <SortFilter
@@ -48,13 +50,13 @@ function ShipQuery(props) {
     />
     <FullDetailsTemplate
       selectedItem={item}
-      spaceData={commonData}
+      spaceData={data}
       section={"SHIPS."}
     />
     <section className="content-section">
       <TemplateList
         section={"SHIPS."}
-        spaceData={commonData}
+        spaceData={data}
         onSelectedItem={setItem}
         selectedItem={item}
       />

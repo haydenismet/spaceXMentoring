@@ -1,7 +1,6 @@
-import React, {useRef} from "react";
+import React from "react";
 
 function TemplateList(props) {
-  const itemContainer  = useRef();
   function onSelectedItem(e) {
     props.onSelectedItem(e.currentTarget.getAttribute("data-mission-id"));
   }
@@ -13,7 +12,7 @@ function TemplateList(props) {
         return (
           (itemDesc.details != null) && (itemDesc.smallImage != null) &&
           itemDesc.details.length >= 175 &&
-          itemDesc.image != null
+          itemDesc.image && itemDesc.image != null
         );
       });
     } else if (props.section === "ROCKETS.") {
@@ -22,7 +21,14 @@ function TemplateList(props) {
           itemDesc.details.length >= 160
         );
       });
+    } else if (props.section === "SHIPS.") {
+      validResults = props.spaceData.filter((itemDesc) => {
+        return (
+          itemDesc.image && itemDesc.image !== null
+        );
+      });
     } 
+
     if (validResults.length === 0) {
       return <div>Loading...</div>;
     }
@@ -34,7 +40,6 @@ function TemplateList(props) {
           data-mission-id={data.id}
           className={props.section !== "SHIPS." ? "item-container" : "ship-container"}
           onClick={onSelectedItem}
-          ref={itemContainer}
         >
           <div className="item-name">
             {(data.missionName) ? (data.missionName) : ((data.rocketName) ? (data.rocketName) : (data.shipName)) }
