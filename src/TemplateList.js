@@ -11,7 +11,7 @@ function TemplateList(props) {
     if (props.section === "LAUNCHES.") {
       validResults = props.spaceData.filter((itemDesc) => {
         return (
-          (itemDesc.details != null) & (itemDesc.smallImage != null) &&
+          (itemDesc.details != null) && (itemDesc.smallImage != null) &&
           itemDesc.details.length >= 175 &&
           itemDesc.image != null
         );
@@ -27,15 +27,12 @@ function TemplateList(props) {
       return <div>Loading...</div>;
     }
 
-  
-    
-
     return validResults.map((data) => (
-      <>
+      
         <div
           key={data.id}
           data-mission-id={data.id}
-          className="item-container"
+          className={props.section !== "SHIPS." ? "item-container" : "ship-container"}
           onClick={onSelectedItem}
           ref={itemContainer}
         >
@@ -52,11 +49,12 @@ function TemplateList(props) {
             <div className="launch-year">{(data.year) ? (data.year) : ((data.active) ? ('ACTIVE') : ('INACTIVE'))}</div>
           </div>
           
+        {(data.details) ? 
           <div className="item-details">
-          {(data.details) ? (data.details) : null}
-            </div>
+          {data.details}
+            </div>  : null }
         </div>
-      </>
+      
     ));
   }
 

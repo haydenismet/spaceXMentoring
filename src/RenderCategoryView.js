@@ -5,8 +5,6 @@ import ShipQuery from "./ShipQuery.js";
 
 function RenderCategoryView(props) {
 
-  
-
   function renderSwitch(param) {
     switch (param) {
       case "LAUNCHES.":

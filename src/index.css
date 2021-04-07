@@ -126,6 +126,18 @@ body {
   cursor:pointer;
 }
 
+.ship-container {
+  padding: 1.5rem 0 1.5rem 2rem;
+  display: flex;
+  background-image: linear-gradient(270deg, #ffffff 100%, #363636 0%);
+  flex-direction: column;
+  width: 75rem;
+  height: 9rem;
+  margin: 2rem 5rem 2rem -2rem;
+  box-shadow: 1px 1px 7px -6px #000000;
+  cursor:pointer;
+}
+
 .item-name {
   font-weight: 900;
   font-size: 2rem;

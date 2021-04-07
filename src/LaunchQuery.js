@@ -32,28 +32,27 @@ const query = gql`
 `;
 
 function LaunchQuery(props) {
-  const [data, setData] = useState({ launches: [] });
+  const [data, setData] = useState([]);
   const [item, setItem] = useState("");
   
   useEffect(() => {
     async function fetchSpaceX() {
       const response = await request("https://api.spacex.land/graphql", query);
-      setData(response);
+      let commonData = response.launches.map((obj) => (
+        {id : obj.id + obj.mission_name,
+         image : obj.links.flickr_images && obj.links.flickr_images.length > 0 ? obj.links.flickr_images[0] : null,
+         missionName : obj.mission_name,
+         rocketName : obj.rocket.rocket.name,
+         year : obj.launch_year,
+         details : obj.details,
+         smallImage : obj.links.mission_patch_small,
+         missionSuccess : obj.launch_success,
+        }
+      ));
+      setData(commonData);
     }
     fetchSpaceX();
   }, []);
-
-
-  let commonData = data.launches.map((obj) => (
-    {id : obj.id,
-     image : obj.links.flickr_images[0],
-     missionName : obj.mission_name,
-     rocketName : obj.rocket.rocket.name,
-     year : obj.launch_year,
-     details : obj.details,
-     smallImage : obj.links.mission_patch_small
-    }
-  ));
 
  
   
@@ -66,13 +65,13 @@ function LaunchQuery(props) {
       />
       <FullDetailsTemplate
         selectedItem={item}
-        spaceData={commonData}
+        spaceData={data}
         section={"LAUNCHES."}
       />
       <section className="content-section">
         <TemplateList
           section={"LAUNCHES."}
-          spaceData={commonData}
+          spaceData={data}
           onSelectedItem={setItem}
           selectedItem={item}
         />
