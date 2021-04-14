@@ -20,6 +20,7 @@ const query = gql`
 function ShipQuery(props) {
   const [data, setData] = useState([]);
   const [item, setItem] = useState("");
+  const [originalData, setOriginalData] = useState([]);
 
   useEffect(() => {
     async function fetchSpaceX() {
@@ -34,6 +35,7 @@ function ShipQuery(props) {
         }
       ));
       setData(commonData);
+      setOriginalData(commonData);
       console.log(commonData);
     }
     fetchSpaceX();
@@ -45,7 +47,7 @@ function ShipQuery(props) {
     <>
     <SortFilter
       section={"SHIPS."}
-      spaceData={data}
+      spaceData={originalData}
       onFilterChange={setData}
     />
     <FullDetailsTemplate

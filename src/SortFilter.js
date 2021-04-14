@@ -34,24 +34,26 @@ function SortFilter(props) {
       console.log("[Filter sort onclick]", filteredData);
     }
     else if (link === "COST") {
-      let filteredData = props.spaceData.sort((a, b) => a.cost - b.cost 
+      let filteredData = ([...props.spaceData]).sort((a, b) => b.cost - a.cost 
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
     } 
     else if (link === "HEIGHT") {
-      let filteredData = ([...props.spaceData]).sort((a,b) => a.height - b.height 
+      let filteredData = ([...props.spaceData]).sort((a,b) => b.height - a.height 
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
     }
     else if (link === "MASS") {
-      let filteredData = ([...props.spaceData]).sort((a,b) => a.mass - b.mass 
+      let filteredData = ([...props.spaceData]).sort((a,b) => b.mass - a.mass 
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
     }
   }, [link]);
+
+
 
   function checkFilter() {
     if (props.section === "LAUNCHES.") {

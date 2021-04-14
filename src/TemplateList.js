@@ -50,7 +50,8 @@ function TemplateList(props) {
             ) : null}
           </div>
           <div className="launch-details">
-            <div className="rocket">{(data.rocketName) ? (data.rocketName) : data.roles[0]}</div>
+            {data.rocketName ? <div className="rocket">{data.rocketName} </div> : null}
+            {data.roles ? data.roles.map((r) => (<div className="rocket" key={r}> {r} </div>)) : null } 
             <div className="launch-year">{(data.year) ? (data.year) : ((data.active) ? ('ACTIVE') : ('INACTIVE'))}</div>
           </div>
           

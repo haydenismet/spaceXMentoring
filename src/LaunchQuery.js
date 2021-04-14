@@ -34,6 +34,7 @@ const query = gql`
 function LaunchQuery(props) {
   const [data, setData] = useState([]);
   const [item, setItem] = useState("");
+  const [originalData, setOriginalData] = useState([]);
   
   useEffect(() => {
     async function fetchSpaceX() {
@@ -50,6 +51,7 @@ function LaunchQuery(props) {
         }
       ));
       setData(commonData);
+      setOriginalData(commonData);
     }
     fetchSpaceX();
   }, []);
@@ -60,7 +62,7 @@ function LaunchQuery(props) {
     <>
       <SortFilter
         section={"LAUNCHES."}
-        spaceData={data}
+        spaceData={originalData}
         onFilterChange={setData}
       />
       <FullDetailsTemplate
