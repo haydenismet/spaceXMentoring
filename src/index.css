@@ -101,10 +101,11 @@ body {
   visibility:hidden;
 }
 
-.selected-mission {
+.full-selected {
   background-color: white;
   padding: 3rem 3.5rem 3.5rem 3.5rem;
   box-shadow: 1px 1px 7px -6px #000000;
+  list-style-type:none;
 }
 
 .content-section {
@@ -120,25 +121,13 @@ body {
   background-image: linear-gradient(270deg, #ffffff 100%, #363636 0%);
   flex-direction: column;
   width: 75rem;
-  height: 18rem;
+  min-height:5rem;
   margin: 2rem 5rem 2rem -2rem;
   box-shadow: 1px 1px 7px -6px #000000;
   cursor:pointer;
 }
 
-.ship-container {
-  padding: 1.5rem 0 1.5rem 2rem;
-  display: flex;
-  background-image: linear-gradient(270deg, #ffffff 100%, #363636 0%);
-  flex-direction: column;
-  width: 75rem;
-  height: 9rem;
-  margin: 2rem 5rem 2rem -2rem;
-  box-shadow: 1px 1px 7px -6px #000000;
-  cursor:pointer;
-}
-
-.item-name {
+.name {
   font-weight: 900;
   font-size: 2rem;
   font-family: "Lato";
@@ -210,11 +199,19 @@ span.mission-patch-small img {
   border-style: none;
 }
 
-.launch-details {
+.details {
   display: flex;
   margin-top: 0.5rem;
   margin-left: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.details-ship {
+  display: flex;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+  flex-direction:column;
 }
 
 .rocket-details {
@@ -223,8 +220,8 @@ span.mission-patch-small img {
   margin-top:1rem;
 }
 
-.rocket,
-.launch-year,
+.lozenge-1,
+.lozenge-2,
 .launch-success {
  
   padding: 0.5rem 1rem;
@@ -235,13 +232,13 @@ span.mission-patch-small img {
   font-size: 1rem;
 }
 
-.rocket {
+.lozenge-1 {
   padding-left: 1rem;
   margin-right: 1rem;
   background-color: #9e9e9e;
 }
 
-.launch-year {
+.lozenge-2 {
   padding-left: 1rem;
   background-color: #9e9e9e;
 }
@@ -270,23 +267,23 @@ span.mission-patch-small img {
   list-style-type: none;
 }
 
-.mission-image {
+.full-image {
   margin-bottom:2rem;
   width:100%;
 }
 
-.mission-image img {
+.full-image img {
   width: 100%;
   height: 30rem;
   object-fit: cover;
   object-position: top;
 }
 
-.selected-mission {
+.full-selected {
   font-family: 'Lato';
 }
 
-.mission-name {
+.full-name {
   font-weight:900;
   font-size:1.6rem;
   flex:1;
@@ -294,7 +291,7 @@ span.mission-patch-small img {
   letter-spacing:0.1rem;
 }
 
-.mission-name-year {
+.full-details-info {
   display:flex;
   list-style-type: none;
   justify-content: flex-end;
@@ -304,24 +301,25 @@ span.mission-patch-small img {
   font-size: 1rem;
 }
 
-.mission-year, .mission-rocket {
+.full-details-info-lozenge {
   align-self:flex-end;
   padding:0.5rem 1rem;
   background-color: #9e9e9e;
   color: white;
 }
 
-.mission-rocket {
+.full-details-info-lozenge {
   margin-right:1rem;
 }
 
-.mission-details {
+
+.full-info-details-p {
   font-size: 1.3rem;
     line-height: 1.9rem;
     text-align: justify;
     color: #424242;
     word-spacing: 0.2rem;
-}
+} 
 
 
 

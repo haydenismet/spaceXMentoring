@@ -11,53 +11,51 @@ function FullDetailsTemplate(props) {
               (selectedMission) => selectedMission.id === props.selectedItem
             )
             .map((filteredSelection) => (
-              <ul className="selected-mission">
+              <ul className="full-selected">
                 {filteredSelection.image && filteredSelection.image !== null ? (
-                  <li className="mission-image">
+                  <li className="full-image">
                     <img src={filteredSelection.image} />
                   </li>
                 ) : null}
-                <ul className="mission-name-year">
+                <ul className="full-details-info">
                   {filteredSelection.missionName && filteredSelection.rocketName ? (
                     <>
-                    <li className="mission-name">
+                    <li className="full-name">
                       {filteredSelection.missionName}
                     </li>
-                    <li className="mission-rocket">
+                    <li className="full-details-info-lozenge">
                       {filteredSelection.rocketName}
                     </li>
                     </>
                   ) : ((!filteredSelection.shipName) ? (
                     <>
-                    <li className="mission-name">
+                    <li className="full-name">
                       {filteredSelection.rocketName}
                     </li>
-                    <li className="mission-rocket">
+                    <li className="full-details-info-lozenge">
                       {filteredSelection.height.toFixed()}ft
                     </li>
-                    <li className="mission-rocket">
+                    <li className="full-details-info-lozenge">
                       {filteredSelection.mass}kg
                     </li>
-                    <li className="mission-rocket">
+                    <li className="full-details-info-lozenge">
                       ${filteredSelection.cost}
                     </li> 
-                    <li className="mission-year">{filteredSelection.year}</li>
+                    <li className="full-details-info-lozenge">{filteredSelection.year}</li>
                     </> ) :  
                     <>
-                    <li className="mission-name">
+                    <li className="full-name">
                       {filteredSelection.shipName}
                     </li>
-                    <li className="mission-rocket">
-                      {filteredSelection.roles[0]}
-                    </li>
-                    <li className="mission-rocket">
+                      {filteredSelection.roles ? filteredSelection.roles.map((r) => (<div className="full-details-info-lozenge" key={r}> {r} </div>)) : null } 
+                    <li className="full-details-info-lozenge">
                       {filteredSelection.active === true ? 'ACTIVE' : 'INACTIVE'}
                     </li>
                     </>
                   )}
                 </ul>
                 {filteredSelection.details ?
-                <li className="mission-details" key={filteredSelection.details}>
+                <li className="full-info-details-p" key={filteredSelection.details}>
                   {filteredSelection.details}
                 </li>
                 : null}

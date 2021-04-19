@@ -38,10 +38,10 @@ function TemplateList(props) {
         <div
           key={data.id}
           data-mission-id={data.id}
-          className={props.section !== "SHIPS." ? "item-container" : "ship-container"}
+          className="item-container"
           onClick={onSelectedItem}
         >
-          <div className="item-name">
+          <div className="name">
             {(data.missionName) ? (data.missionName) : ((data.rocketName) ? (data.rocketName) : (data.shipName)) }
             {data.smallImage ? (
               <span className="mission-patch-small">
@@ -49,10 +49,10 @@ function TemplateList(props) {
               </span>
             ) : null}
           </div>
-          <div className="launch-details">
-            {data.rocketName ? <div className="rocket">{data.rocketName} </div> : null}
-            {data.roles ? data.roles.map((r) => (<div className="rocket" key={r}> {r} </div>)) : null } 
-            <div className="launch-year">{(data.year) ? (data.year) : ((data.active) ? ('ACTIVE') : ('INACTIVE'))}</div>
+          <div className={data.roles ? "details-ship" : "details"}>
+            {data.rocketName ? <div className="lozenge-1">{data.rocketName} </div> : null}
+            {data.roles ? data.roles.map((r) => (<div className="lozenge-1" key={r}> {r} </div>)) : null } 
+            <div className="lozenge-1">{(data.year) ? (data.year) : ((data.active) ? ('ACTIVE') : ('INACTIVE'))}</div>
           </div>
           
         {(data.details) ? 
