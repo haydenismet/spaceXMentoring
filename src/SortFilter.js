@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function SortFilter(props) {
+  console.log(props);
   const [link, setLink] = useState("");
 
   function handleFilterClick(e) {
@@ -50,7 +51,21 @@ function SortFilter(props) {
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
-    }
+    } else if (link === "ACTIVE") {
+      let filteredData = ([...props.spaceData]).filter(
+        (a) => a.active === true
+      );
+      props.onFilterChange(filteredData);
+    } else if (link === "INACTIVE") {
+      let filteredData = ([...props.spaceData]).filter(
+        (a) => a.active === false
+      );
+      props.onFilterChange(filteredData);
+    } else if (link === "ALL") {
+      
+      props.onFilterChange(props.spaceData);
+    } 
+    
   }, [link]);
 
 
@@ -106,6 +121,27 @@ function SortFilter(props) {
             COST</li>
         </>
       );
+    } else if (props.section === "SHIPS.") {
+    return (
+      <>
+        <li
+            onClick={handleFilterClick}
+            aria-selected={link === "ACTIVE" ? true : undefined}
+          >
+            ACTIVE
+          </li>
+          <li
+            onClick={handleFilterClick}
+            aria-selected={link === "INACTIVE" ? true : undefined}
+          >
+            INACTIVE</li>
+            <li
+            onClick={handleFilterClick}
+            aria-selected={link === "ALL" ? true : undefined}
+          >
+            ALL </li>
+        </>
+    )
     }
   }
 
