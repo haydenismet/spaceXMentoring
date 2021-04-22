@@ -62,8 +62,8 @@ function SortFilter(props) {
       );
       props.onFilterChange(filteredData);
     } else if (link === "ALL") {
-      
-      props.onFilterChange(props.spaceData);
+      let filteredData = ([...props.spaceData]);
+      props.onFilterChange(filteredData);
     } 
     
   }, [link]);
@@ -139,7 +139,7 @@ function SortFilter(props) {
             onClick={handleFilterClick}
             aria-selected={link === "ALL" ? true : undefined}
           >
-            ALL </li>
+            ALL</li>
         </>
     )
     }

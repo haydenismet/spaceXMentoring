@@ -1,7 +1,7 @@
 import React from "react";
 import { request, gql } from "graphql-request";
 import { useState, useEffect } from "react";
-
+import About from "./About.js";
 
 const query = gql`
 {
@@ -27,12 +27,19 @@ const query = gql`
 `;
 
 function AboutQuery(props) {
-  
+const [data, setData] = useState([]);
+useEffect(() => {
+  async function fetchSpaceX() {
+    const response = await request("https://api.spacex.land/graphql", query);   
+   
+    setData(response);
+  }
+  fetchSpaceX();
+}, []);
 
-console.log('about-query');
 
   return (
-  <div> About Query </div>
+  <About companyData={data}/>
   );
 }
 
