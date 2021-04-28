@@ -6,15 +6,15 @@ import SortFilter from "./SortFilter.js";
 import FullDetailsTemplate from "./FullDetailsTemplate.js";
 
 const query = gql`
-{
-  ships {
-    id
-    image
-    name
-    active
-    roles
+  {
+    ships {
+      id
+      image
+      name
+      active
+      roles
+    }
   }
-}
 `;
 
 function ShipQuery(props) {
@@ -24,16 +24,22 @@ function ShipQuery(props) {
 
   useEffect(() => {
     async function fetchSpaceX() {
-      const response = await request("https://api.spacex.land/graphql", query);   
+      const response = await request("https://api.spacex.land/graphql", query);
       console.log(response);
-      let commonData = response.ships.map((obj) => (
-        {id : obj.id,
-        shipName : obj.name,
-        image : obj.image && obj.image !== null && obj.image.length > 0 ? obj.image : null,
-        active : obj.active,
-        roles : obj.roles
-        }
-      ));
+      let commonData = response.ships
+        .map((obj) => ({
+          id: obj.id,
+          shipName: obj.name,
+          image:
+            obj.image && obj.image !== null && obj.image.length > 0
+              ? obj.image
+              : null,
+          active: obj.active,
+          roles: obj.roles,
+        }))
+        .filter((filterObj) => {
+          return filterObj.image !== null;
+        });
       setData(commonData);
       setOriginalData(commonData);
       console.log(commonData);
@@ -41,29 +47,34 @@ function ShipQuery(props) {
     fetchSpaceX();
   }, []);
 
-
+  function setView(filteredData) {
+    setData(filteredData);
+    if (filteredData.length > 0) {
+      setItem(filteredData[0].id);
+    }
+  }
 
   return (
     <>
-    <SortFilter
-      section={"SHIPS."}
-      spaceData={originalData}
-      onFilterChange={setData}
-    />
-    <FullDetailsTemplate
-      selectedItem={item}
-      spaceData={data}
-      section={"SHIPS."}
-    />
-    <section className="content-section">
-      <TemplateList
+      <SortFilter
         section={"SHIPS."}
-        spaceData={data}
-        onSelectedItem={setItem}
-        selectedItem={item}
+        spaceData={originalData}
+        onFilterChange={setView}
       />
-    </section>
-  </>
+      <FullDetailsTemplate
+        selectedItem={item}
+        spaceData={data}
+        section={"SHIPS."}
+      />
+      <section className="content-section">
+        <TemplateList
+          section={"SHIPS."}
+          spaceData={data}
+          onSelectedItem={setItem}
+          selectedItem={item}
+        />
+      </section>
+    </>
   );
 }
 

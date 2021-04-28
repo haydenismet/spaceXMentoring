@@ -33,49 +33,58 @@ function RocketQuery(props) {
   const [data, setData] = useState([]);
   const [item, setItem] = useState("");
   const [originalData, setOriginalData] = useState([]);
-  
 
   useEffect(() => {
     async function fetchSpaceX() {
       const response = await request("https://api.spacex.land/graphql", query);
-      let commonData = response.rockets.map((obj) => (
-        {id : obj.id,
-         rocketName : obj.name,
-         year : obj.first_flight,
-         details : obj.description,
-         mass : obj.mass.kg,
-         height: obj.height.feet,
-         cost : obj.cost_per_launch,
-         success : obj.success_rate_pct
-        }
-      ));
+      let commonData = response.rockets
+        .map((obj) => ({
+          id: obj.id,
+          rocketName: obj.name,
+          year: obj.first_flight,
+          details: obj.description,
+          mass: obj.mass.kg,
+          height: obj.height.feet,
+          cost: obj.cost_per_launch,
+          success: obj.success_rate_pct,
+        }))
+        .filter((filterObj) => {
+          return filterObj.image !== null;
+        });
       setData(commonData);
       setOriginalData(commonData);
     }
     fetchSpaceX();
   }, []);
 
+  function setView(filteredData) {
+    setData(filteredData);
+    if (filteredData.length > 0) {
+      setItem(filteredData[0].id);
+    }
+  }
+
   return (
     <>
-    <SortFilter
-      section={"ROCKETS."}
-      spaceData={originalData}
-      onFilterChange={setData}
-    />
-    <FullDetailsTemplate
-      selectedItem={item}
-      spaceData={data}
-      section={"ROCKETS."}
-    />
-    <section className="content-section">
-      <TemplateList
+      <SortFilter
         section={"ROCKETS."}
-        spaceData={data}
-        onSelectedItem={setItem}
-        selectedItem={item}
+        spaceData={originalData}
+        onFilterChange={setView}
       />
-    </section>
-  </>
+      <FullDetailsTemplate
+        selectedItem={item}
+        spaceData={data}
+        section={"ROCKETS."}
+      />
+      <section className="content-section">
+        <TemplateList
+          section={"ROCKETS."}
+          spaceData={data}
+          onSelectedItem={setItem}
+          selectedItem={item}
+        />
+      </section>
+    </>
   );
 }
 
