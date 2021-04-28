@@ -35,35 +35,46 @@ function LaunchQuery(props) {
   const [data, setData] = useState([]);
   const [item, setItem] = useState("");
   const [originalData, setOriginalData] = useState([]);
-  
+
   useEffect(() => {
     async function fetchSpaceX() {
       const response = await request("https://api.spacex.land/graphql", query);
-      let commonData = response.launches.map((obj) => (
-        {id : obj.id + obj.mission_name,
-         image : obj.links.flickr_images && obj.links.flickr_images.length > 0 ? obj.links.flickr_images[0] : null,
-         missionName : obj.mission_name,
-         rocketName : obj.rocket.rocket.name,
-         year : obj.launch_year,
-         details : obj.details,
-         smallImage : obj.links.mission_patch_small,
-         missionSuccess : obj.launch_success,
-        }
-      ));
+      let commonData = response.launches
+        .map((obj) => ({
+          id: obj.id + obj.mission_name,
+          image:
+            obj.links.flickr_images && obj.links.flickr_images.length > 0
+              ? obj.links.flickr_images[0]
+              : null,
+          missionName: obj.mission_name,
+          rocketName: obj.rocket.rocket.name,
+          year: obj.launch_year,
+          details: obj.details,
+          smallImage: obj.links.mission_patch_small,
+          missionSuccess: obj.launch_success,
+        }))
+        .filter((filterObj) => {
+          return filterObj.image !== null;
+        });
       setData(commonData);
       setOriginalData(commonData);
     }
     fetchSpaceX();
   }, []);
 
- 
-  
+  function setView(filteredData) {
+    setData(filteredData);
+    if (filteredData.length > 0) {
+      setItem(filteredData[0].id);
+    }
+  }
+
   return (
     <>
       <SortFilter
         section={"LAUNCHES."}
         spaceData={originalData}
-        onFilterChange={setData}
+        onFilterChange={setView}
       />
       <FullDetailsTemplate
         selectedItem={item}
