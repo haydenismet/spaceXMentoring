@@ -31,7 +31,7 @@ function TemplateList(props) {
 
     if (validResults.length === 0) {
       return (
-        <div>
+        <div className="loader-style">
           <img src={loader} />
         </div>
       );

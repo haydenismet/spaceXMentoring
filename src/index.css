@@ -318,6 +318,10 @@ span.mission-patch-small img {
   word-spacing: 0.2rem;
 }
 
+.loader-style {
+  margin-left: -2rem;
+}
+
 .company-container {
   margin-left: 28rem;
   display: flex;
