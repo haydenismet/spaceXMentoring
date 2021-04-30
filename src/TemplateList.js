@@ -1,4 +1,6 @@
+import { locatedError } from "graphql";
 import React from "react";
+import loader from "./horizontal-loader.gif";
 
 function TemplateList(props) {
   function onSelectedItem(e) {
@@ -10,57 +12,71 @@ function TemplateList(props) {
     if (props.section === "LAUNCHES.") {
       validResults = props.spaceData.filter((itemDesc) => {
         return (
-          (itemDesc.details != null) && (itemDesc.smallImage != null) &&
+          itemDesc.details != null &&
+          itemDesc.smallImage != null &&
           itemDesc.details.length >= 175 &&
-          itemDesc.image && itemDesc.image != null
+          itemDesc.image &&
+          itemDesc.image != null
         );
       });
     } else if (props.section === "ROCKETS.") {
       validResults = props.spaceData.filter((itemDesc) => {
-        return (
-          itemDesc.details.length >= 160
-        );
+        return itemDesc.details.length >= 160;
       });
     } else if (props.section === "SHIPS.") {
       validResults = props.spaceData.filter((itemDesc) => {
-        return (
-          itemDesc.image && itemDesc.image !== null
-        );
+        return itemDesc.image && itemDesc.image !== null;
       });
-    } 
+    }
 
     if (validResults.length === 0) {
-      return <div>Loading...</div>;
+      return (
+        <div>
+          <img src={loader} />
+        </div>
+      );
     }
 
     return validResults.map((data) => (
-      
-        <div
-          key={data.id}
-          data-mission-id={data.id}
-          className="item-container"
-          onClick={onSelectedItem}
-        >
-          <div className="name">
-            {(data.missionName) ? (data.missionName) : ((data.rocketName) ? (data.rocketName) : (data.shipName)) }
-            {data.smallImage ? (
-              <span className="mission-patch-small">
-                <img src={data.smallImage} alt="mission patch" />
-              </span>
-            ) : null}
-          </div>
-          <div className={data.roles ? "details-ship" : "details"}>
-            {data.rocketName ? <div className="lozenge-1">{data.rocketName} </div> : null}
-            {data.roles ? data.roles.map((r) => (<div className="lozenge-1" key={r}> {r} </div>)) : null } 
-            <div className="lozenge-1">{(data.year) ? (data.year) : ((data.active) ? ('ACTIVE') : ('INACTIVE'))}</div>
-          </div>
-          
-        {(data.details) ? 
-          <div className="item-details">
-          {data.details}
-            </div>  : null }
+      <div
+        key={data.id}
+        data-mission-id={data.id}
+        className="item-container"
+        onClick={onSelectedItem}
+      >
+        <div className="name">
+          {data.missionName
+            ? data.missionName
+            : data.rocketName
+            ? data.rocketName
+            : data.shipName}
+          {data.smallImage ? (
+            <span className="mission-patch-small">
+              <img src={data.smallImage} alt="mission patch" />
+            </span>
+          ) : null}
         </div>
-      
+        <div className={data.roles ? "details-ship" : "details"}>
+          {data.rocketName ? (
+            <div className="lozenge-1">{data.rocketName} </div>
+          ) : null}
+          {data.roles
+            ? data.roles.map((r) => (
+                <div className="lozenge-1" key={r}>
+                  {" "}
+                  {r}{" "}
+                </div>
+              ))
+            : null}
+          <div className="lozenge-1">
+            {data.year ? data.year : data.active ? "ACTIVE" : "INACTIVE"}
+          </div>
+        </div>
+
+        {data.details ? (
+          <div className="item-details">{data.details}</div>
+        ) : null}
+      </div>
     ));
   }
 
