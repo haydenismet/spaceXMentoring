@@ -4,6 +4,9 @@ import TemplateList from "./TemplateList.js";
 import SortFilter from "./SortFilter.js";
 import FullDetailsTemplate from "./FullDetailsTemplate.js";
 
+{
+  /* GQL Query for Launches */
+}
 const query = gql`
   {
     launches {
@@ -32,6 +35,9 @@ const query = gql`
 `;
 
 function LaunchQuery(props) {
+  {
+    /* useState setups  */
+  }
   const [data, setData] = useState([]);
   const [item, setItem] = useState("");
   const [originalData, setOriginalData] = useState([]);

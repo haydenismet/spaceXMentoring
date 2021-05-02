@@ -1,4 +1,10 @@
 import React from "react";
+
+{
+  /* Returns html markup with the props of the sidebar values 
+    Also passes the props.onNavChange function to the onClick event handler, which gets and sets the heading. 
+  */
+}
 function Sidebar(props) {
   return (
     <>

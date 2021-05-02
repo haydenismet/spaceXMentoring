@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import Sidebar from "./Sidebar.js";
 import Headings from "./Headings.js";
 
+{
+  /* Navigation component takes props, which were set in the <spaceX> component. 
+  A new useState is created to be set by the `handleNavbarClick` function. When the user clicks a navigation item, i.e SHIPS, the `handleNavbar`click function uses the `setHeading` of the useState value to fetch the `data-id` attribute and set this into the useState.
+
+  ?? QUERY WITH PHIL
+  */
+}
+
 function Navigation(props) {
   const [heading, setHeading] = useState("LAUNCHES.");
 

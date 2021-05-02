@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import SpaceX from './spaceX.js';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import SpaceX from "./spaceX.js";
+{
+  /*Main Template File, renders SpaceX component*/
+}
 ReactDOM.render(
   <React.StrictMode>
-  <SpaceX/>
+    <SpaceX />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
