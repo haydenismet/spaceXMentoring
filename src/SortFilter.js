@@ -2,75 +2,74 @@ import React, { useEffect, useState } from "react";
 
 function SortFilter(props) {
   console.log(props);
+  {
+    /* useState to determine which sort filter link has been clicked, i.e ALL, DATE etc.   */
+  }
   const [link, setLink] = useState("");
 
+  {
+    /* function passed to the onClick of the rendered sort filter template to determine the clicked link and run the useEffect conditionals below */
+  }
   function handleFilterClick(e) {
     setLink(e.target.innerHTML);
   }
 
   useEffect(() => {
+    {
+      /* Conditionals to check result of `handleFilterClick` - and run appropriate sortFilter process. For using javascript SORT - a copy must be made of the original data obj. Most other JS functions make a copy for you but with sort, the array is sorted in place, and no copy is made. So we must make one to not mutate original array. JS filter? Query with PHIL */
+    }
     if (link === "DATE") {
-      let filteredData = ([...props.spaceData]).sort(
-        (a, b) => a.year - b.year
-      );
+      let filteredData = [...props.spaceData].sort((a, b) => a.year - b.year);
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
     } else if (link === "NAME") {
-      let filteredData = ([...props.spaceData]).sort((a, b) =>
+      let filteredData = [...props.spaceData].sort((a, b) =>
         a.missionName > b.missionName ? 1 : -1
       );
       props.onFilterChange(filteredData);
       console.log("[namesort]", filteredData);
     } else if (link === "SUCCESS") {
-      let filteredData = ([...props.spaceData]).filter(
+      let filteredData = [...props.spaceData].filter(
         (a) => a.missionSuccess === true
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
     } else if (link === "FAILURE") {
-      let filteredData = ([...props.spaceData]).filter(
+      let filteredData = [...props.spaceData].filter(
         (a) => a.missionSuccess === false
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
-    }
-    else if (link === "COST") {
-      let filteredData = ([...props.spaceData]).sort((a, b) => b.cost - a.cost 
+    } else if (link === "COST") {
+      let filteredData = [...props.spaceData].sort((a, b) => b.cost - a.cost);
+      props.onFilterChange(filteredData);
+      console.log("[Filter sort onclick]", filteredData);
+    } else if (link === "HEIGHT") {
+      let filteredData = [...props.spaceData].sort(
+        (a, b) => b.height - a.height
       );
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
-    } 
-    else if (link === "HEIGHT") {
-      let filteredData = ([...props.spaceData]).sort((a,b) => b.height - a.height 
-      );
-      props.onFilterChange(filteredData);
-      console.log("[Filter sort onclick]", filteredData);
-    }
-    else if (link === "MASS") {
-      let filteredData = ([...props.spaceData]).sort((a,b) => b.mass - a.mass 
-      );
+    } else if (link === "MASS") {
+      let filteredData = [...props.spaceData].sort((a, b) => b.mass - a.mass);
       props.onFilterChange(filteredData);
       console.log("[Filter sort onclick]", filteredData);
     } else if (link === "ACTIVE") {
-      let filteredData = ([...props.spaceData]).filter(
-        (a) => a.active === true
-      );
+      let filteredData = [...props.spaceData].filter((a) => a.active === true);
       props.onFilterChange(filteredData);
     } else if (link === "INACTIVE") {
-      let filteredData = ([...props.spaceData]).filter(
-        (a) => a.active === false
-      );
+      let filteredData = [...props.spaceData].filter((a) => a.active === false);
       props.onFilterChange(filteredData);
     } else if (link === "ALL") {
-      let filteredData = ([...props.spaceData]);
+      let filteredData = [...props.spaceData];
       props.onFilterChange(filteredData);
-    } 
-    
+    }
   }, [link]);
 
-
-
   function checkFilter() {
+    {
+      /* How do we obtain props.section again from a previous component? */
+    }
     if (props.section === "LAUNCHES.") {
       return (
         <>
@@ -113,18 +112,20 @@ function SortFilter(props) {
             onClick={handleFilterClick}
             aria-selected={link === "HEIGHT" ? true : undefined}
           >
-            HEIGHT</li>
-            <li
+            HEIGHT
+          </li>
+          <li
             onClick={handleFilterClick}
             aria-selected={link === "COST" ? true : undefined}
           >
-            COST</li>
+            COST
+          </li>
         </>
       );
     } else if (props.section === "SHIPS.") {
-    return (
-      <>
-        <li
+      return (
+        <>
+          <li
             onClick={handleFilterClick}
             aria-selected={link === "ACTIVE" ? true : undefined}
           >
@@ -134,14 +135,16 @@ function SortFilter(props) {
             onClick={handleFilterClick}
             aria-selected={link === "INACTIVE" ? true : undefined}
           >
-            INACTIVE</li>
-            <li
+            INACTIVE
+          </li>
+          <li
             onClick={handleFilterClick}
             aria-selected={link === "ALL" ? true : undefined}
           >
-            ALL</li>
+            ALL
+          </li>
         </>
-    )
+      );
     }
   }
 
