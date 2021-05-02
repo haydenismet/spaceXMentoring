@@ -68,9 +68,14 @@ function TemplateList(props) {
                 </div>
               ))
             : null}
-          <div className="lozenge-1">
-            {data.year ? data.year : data.active ? "ACTIVE" : "INACTIVE"}
-          </div>
+
+          {data.year ? (
+            <div className="lozenge-1"> {data.year} </div>
+          ) : data.active ? (
+            <div className="lozenge-1 lozenge-active">ACTIVE</div>
+          ) : (
+            <div className="lozenge-1 lozenge-inactive">INACTIVE</div>
+          )}
         </div>
 
         {data.details ? (
