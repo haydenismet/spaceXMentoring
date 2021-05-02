@@ -68,7 +68,7 @@ function SortFilter(props) {
 
   function checkFilter() {
     {
-      /* How do we obtain props.section again from a previous component? */
+      /* How do we obtain props.section again from a previous component?  PHIL*/
     }
     if (props.section === "LAUNCHES.") {
       return (

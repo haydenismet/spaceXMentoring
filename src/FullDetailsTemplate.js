@@ -55,8 +55,7 @@ function FullDetailsTemplate(props) {
                       {filteredSelection.roles
                         ? filteredSelection.roles.map((r) => (
                             <div className="full-details-info-lozenge" key={r}>
-                              {" "}
-                              {r}{" "}
+                              {r}
                             </div>
                           ))
                         : null}
