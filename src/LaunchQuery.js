@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import TemplateList from "./TemplateList.js";
 import SortFilter from "./SortFilter.js";
 import FullDetailsTemplate from "./FullDetailsTemplate.js";
+// LaunchQuery Comments apply for shipquery and rocketquery
 // GQL Query for Launches
 const query = gql`
   {
