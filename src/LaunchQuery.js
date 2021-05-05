@@ -3,10 +3,7 @@ import { useState, useEffect } from "react";
 import TemplateList from "./TemplateList.js";
 import SortFilter from "./SortFilter.js";
 import FullDetailsTemplate from "./FullDetailsTemplate.js";
-
-{
-  /* GQL Query for Launches */
-}
+// GQL Query for Launches
 const query = gql`
   {
     launches {
@@ -35,21 +32,17 @@ const query = gql`
 `;
 
 function LaunchQuery(props) {
-  {
-    /* useState setups  
-    
-    */
-  }
+  //useState setups
   const [data, setData] = useState([]);
+  // Other components take data path
   const [item, setItem] = useState("");
   const [originalData, setOriginalData] = useState([]);
+  // SortFilter takes originalData path -> separation of concerns as SortFilter makes modificaitons to the data obj.
 
   useEffect(() => {
     async function fetchSpaceX() {
       const response = await request("https://api.spacex.land/graphql", query);
-      {
-        /* within the useEffect, taking the network request before I use it and setting values into a commonData object via map. Also using conditionals to return null for paths that aren't populated i.e images */
-      }
+      // within the useEffect, taking the network request before I use it and setting values into a commonData object via map. Also using conditionals to return null for paths that aren't populated i.e images
       let commonData = response.launches
         .map((obj) => ({
           id: obj.id + obj.mission_name,
@@ -67,21 +60,16 @@ function LaunchQuery(props) {
         .filter((filterObj) => {
           return filterObj.image !== null;
         });
-      {
-        /* then filtering this mapped commonData object to remove any image paths that ARE NULL  */
-      }
-      {
-        /* Two useStates which set commonData, one is for generic use, and the other is for use when using the <SortFilter/> component, so if the object is filtered to remove INACTIVE ships for example, then the user clicks the filter to show ALL ships again, to revert back to the setOriginalData path. Otherwise, the sortFilter would load the same object we'd just filtered for INACTIVE ships and therefore would not be the complete active? QUERY WITH PHIL. */
-      }
+      //then filtering this mapped commonData object to remove any image paths that ARE NULL
+
+      /* Two useStates which set commonData, one is for generic use, and the other is for use when using the <SortFilter/> component, so if the object is filtered to remove INACTIVE ships for example, then the user clicks the filter to show ALL ships again, to revert back to the setOriginalData path. Otherwise, the sortFilter would load the same object we'd just filtered for INACTIVE ships and therefore would not be the complete arr of objects */
       setData(commonData);
       setOriginalData(commonData);
     }
     fetchSpaceX();
   }, []);
 
-  {
-    /* Sets the first item in the launchQuery to be shown.. but how? QUERY WITH PHIL   */
-  }
+  // Sets the first item in the launchQuery to be shown. This function is passed to <SortFilter onFilterChange/> and used within it, taking filteredData as a param, .
   function setView(filteredData) {
     setData(filteredData);
     if (filteredData.length > 0) {

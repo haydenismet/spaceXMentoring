@@ -1,59 +1,46 @@
 import React, { useEffect, useState } from "react";
 
 function SortFilter(props) {
-  console.log(props);
-  {
-    /* useState to determine which sort filter link has been clicked, i.e ALL, DATE etc.   */
-  }
+  //useState to determine which sort filter link has been clicked, i.e ALL, DATE etc.
   const [link, setLink] = useState("");
 
-  {
-    /* function passed to the onClick of the rendered sort filter template to determine the clicked link and run the useEffect conditionals below */
-  }
+  //function passed to the onClick of the rendered sort filter template to determine the clicked link and run the useEffect conditionals below
   function handleFilterClick(e) {
     setLink(e.target.innerHTML);
   }
 
   useEffect(() => {
-    {
-      /* Conditionals to check result of `handleFilterClick` - and run appropriate sortFilter process. For using javascript SORT - a copy must be made of the original data obj. Most other JS functions make a copy for you but with sort, the array is sorted in place, and no copy is made. So we must make one to not mutate original array. JS filter? Query with PHIL */
-    }
+    /* Conditionals to check result of `handleFilterClick` - and run appropriate sortFilter process. For using javascript SORT - a copy must be made of the original data obj. Most other JS functions make a copy for you but with sort, the array is sorted in place, and no copy is made. So we must make one to not mutate original array. JS filter does make a copy but you've made a copy anyway for best practice */
     if (link === "DATE") {
       let filteredData = [...props.spaceData].sort((a, b) => a.year - b.year);
       props.onFilterChange(filteredData);
-      console.log("[Filter sort onclick]", filteredData);
+      // props.onFilterChange is calling setView func and setting to first item in modified arr of obj
     } else if (link === "NAME") {
       let filteredData = [...props.spaceData].sort((a, b) =>
         a.missionName > b.missionName ? 1 : -1
       );
       props.onFilterChange(filteredData);
-      console.log("[namesort]", filteredData);
     } else if (link === "SUCCESS") {
       let filteredData = [...props.spaceData].filter(
         (a) => a.missionSuccess === true
       );
       props.onFilterChange(filteredData);
-      console.log("[Filter sort onclick]", filteredData);
     } else if (link === "FAILURE") {
       let filteredData = [...props.spaceData].filter(
         (a) => a.missionSuccess === false
       );
       props.onFilterChange(filteredData);
-      console.log("[Filter sort onclick]", filteredData);
     } else if (link === "COST") {
       let filteredData = [...props.spaceData].sort((a, b) => b.cost - a.cost);
       props.onFilterChange(filteredData);
-      console.log("[Filter sort onclick]", filteredData);
     } else if (link === "HEIGHT") {
       let filteredData = [...props.spaceData].sort(
         (a, b) => b.height - a.height
       );
       props.onFilterChange(filteredData);
-      console.log("[Filter sort onclick]", filteredData);
     } else if (link === "MASS") {
       let filteredData = [...props.spaceData].sort((a, b) => b.mass - a.mass);
       props.onFilterChange(filteredData);
-      console.log("[Filter sort onclick]", filteredData);
     } else if (link === "ACTIVE") {
       let filteredData = [...props.spaceData].filter((a) => a.active === true);
       props.onFilterChange(filteredData);
@@ -67,9 +54,7 @@ function SortFilter(props) {
   }, [link]);
 
   function checkFilter() {
-    {
-      /* How do we obtain props.section again from a previous component?  PHIL*/
-    }
+    // How do we obtain props.section again from a previous component -- set manually in <____Query.js/>
     if (props.section === "LAUNCHES.") {
       return (
         <>

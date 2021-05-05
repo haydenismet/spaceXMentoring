@@ -2,18 +2,14 @@ import { locatedError } from "graphql";
 import React from "react";
 import loader from "./horizontal-loader.gif";
 
-{
-  /* Grab the clicked item from the template list */
-}
+// Grab the clicked item from the template list
 function TemplateList(props) {
   function onSelectedItem(e) {
     props.onSelectedItem(e.currentTarget.getAttribute("data-mission-id"));
   }
 
   function launchTemplateList() {
-    {
-      /* Conditional to check against section and filter obj accordingly - no longer required as created higher up the tree */
-    }
+    //Conditional to check against section and filter obj accordingly - no longer required as created higher up the tree
     let validResults = props.spaceData;
     if (props.section === "LAUNCHES.") {
       validResults = props.spaceData.filter((itemDesc) => {
@@ -38,14 +34,12 @@ function TemplateList(props) {
     if (validResults.length === 0) {
       return (
         <div className="loader-style">
-          <img src={loader} />
+          <img src={loader} alt="loading" />
         </div>
       );
     }
 
-    {
-      /* Map the generic data obj and add conditionals to render the object dependent on values available. */
-    }
+    // Map the generic data obj and add conditionals to render the object dependent on values available.
     return validResults.map((data) => (
       <div
         key={data.id}
@@ -72,8 +66,7 @@ function TemplateList(props) {
           {data.roles
             ? data.roles.map((r) => (
                 <div className="lozenge-1" key={r}>
-                  {" "}
-                  {r}{" "}
+                  {r}
                 </div>
               ))
             : null}
