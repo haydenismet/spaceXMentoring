@@ -64,7 +64,7 @@ function LaunchQuery(props) {
       //then filtering this mapped commonData object to remove any image paths that ARE NULL
 
       /* Two useStates which set commonData, one is for generic use, and the other is for use when using the <SortFilter/> component, so if the object is filtered to remove INACTIVE ships for example, then the user clicks the filter to show ALL ships again, to revert back to the setOriginalData path. Otherwise, the sortFilter would load the same object we'd just filtered for INACTIVE ships and therefore would not be the complete arr of objects */
-      setData(commonData);
+      setView(commonData);
       setOriginalData(commonData);
     }
     fetchSpaceX();

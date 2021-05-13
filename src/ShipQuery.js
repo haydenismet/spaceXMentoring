@@ -40,7 +40,7 @@ function ShipQuery(props) {
         .filter((filterObj) => {
           return filterObj.image !== null;
         });
-      setData(commonData);
+      setView(commonData);
       setOriginalData(commonData);
       console.log(commonData);
     }

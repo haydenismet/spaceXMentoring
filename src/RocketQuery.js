@@ -51,7 +51,7 @@ function RocketQuery(props) {
         .filter((filterObj) => {
           return filterObj.image !== null;
         });
-      setData(commonData);
+      setView(commonData);
       setOriginalData(commonData);
     }
     fetchSpaceX();
