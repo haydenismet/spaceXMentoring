@@ -71,18 +71,22 @@ function RocketQuery(props) {
         spaceData={originalData}
         onFilterChange={setView}
       />
-      <FullDetailsTemplate
-        selectedItem={item}
-        spaceData={data}
-        section={"ROCKETS."}
-      />
-      <section className="content-section">
-        <TemplateList
-          section={"ROCKETS."}
-          spaceData={data}
-          onSelectedItem={setItem}
-          selectedItem={item}
-        />
+      <section className="full-view">
+        <section className="full-details-view">
+          <FullDetailsTemplate
+            selectedItem={item}
+            spaceData={data}
+            section={"ROCKETS."}
+          />
+        </section>
+        <section className="content-section">
+          <TemplateList
+            section={"ROCKETS."}
+            spaceData={data}
+            onSelectedItem={setItem}
+            selectedItem={item}
+          />
+        </section>
       </section>
     </>
   );

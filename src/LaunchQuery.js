@@ -70,7 +70,7 @@ function LaunchQuery(props) {
     fetchSpaceX();
   }, []);
 
-  // Sets the first item in the launchQuery to be shown. This function is passed to <SortFilter onFilterChange/> and used within it, taking filteredData as a param, .
+  // Sets the first item in the launchQuery to be shown. This function is passed to <SortFilter onFilterChange/> and used within it, taking filteredData as a param. There are two useState functions within to set the data .
   function setView(filteredData) {
     setData(filteredData);
     if (filteredData.length > 0) {
@@ -85,18 +85,22 @@ function LaunchQuery(props) {
         spaceData={originalData}
         onFilterChange={setView}
       />
-      <FullDetailsTemplate
-        selectedItem={item}
-        spaceData={data}
-        section={"LAUNCHES."}
-      />
-      <section className="content-section">
-        <TemplateList
-          section={"LAUNCHES."}
-          spaceData={data}
-          onSelectedItem={setItem}
-          selectedItem={item}
-        />
+      <section className="full-view">
+        <section className="full-details-view">
+          <FullDetailsTemplate
+            selectedItem={item}
+            spaceData={data}
+            section={"LAUNCHES."}
+          />
+        </section>
+        <section className="content-section">
+          <TemplateList
+            section={"LAUNCHES."}
+            spaceData={data}
+            onSelectedItem={setItem}
+            selectedItem={item}
+          />
+        </section>
       </section>
     </>
   );
