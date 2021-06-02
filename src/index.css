@@ -33,6 +33,10 @@ body {
   /*overflow-x: hidden;*/
 }
 
+li[data-id="ABOUT."] {
+  display: none;
+}
+
 .navbar {
   background-color: #161616;
   color: white;
@@ -322,10 +326,6 @@ span.mission-patch-small img {
   word-spacing: 0.2rem;
 }
 
-.loader-style {
-  margin-left: -2rem;
-}
-
 .company-container {
   margin-left: 10rem;
   display: flex;
@@ -410,17 +410,109 @@ span.mission-patch-small img {
   background-color: #d26e6e;
 }
 
-/*
-@media only screen and (max-width: 1270px) {
+@media only screen and (max-width: 1200px) {
+  .item-details {
+    display: none;
+  }
+
+  .full-details-view {
+    margin-left: 0;
+  }
+
+  .content-section {
+    margin-left: 0;
+    max-width: 41rem;
+  }
+  .heading-title,
+  .launches,
+  .render-category-view,
+  .whoops,
+  .sort-filter,
+  .rockets-section,
+  .temporary-rocket-full {
+    margin-left: 5rem;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .item-container {
+    margin: 2rem 2rem 0rem 0rem;
+  }
+  .content-section {
+    max-width: 30rem;
+  }
+
+  .name {
+    font-size: 1.4rem;
+  }
+
+  .details {
+    display: none;
+  }
+
+  .mission-patch-small {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 680px) {
+  .main-and-sub-nav {
+    align-items: center;
+  }
+
+  .item-container {
+    margin: 2rem 0rem 2rem 0rem;
+  }
+
+  .heading-h1 {
+    margin-top: 0;
+  }
+
+  .heading-title,
+  .launches,
+  .render-category-view,
+  .whoops,
+  .sort-filter,
+  .rockets-section,
+  .temporary-rocket-full {
+    margin-left: 0;
+  }
+  .nav-list {
+    font-size: 1.4rem;
+  }
+
   .full-details-view {
     display: none;
   }
 
   .content-section {
-    width: 100%;
+    max-width: 100%;
   }
 
-  .item-container {
-    margin: 2rem 1rem 2rem -2rem;
+  .mission-patch-small,
+  .details,
+  .item-details {
+    display: flex;
   }
-} */
+
+  .sort-filter {
+    padding: 0;
+    flex-direction: column;
+  }
+
+  .sort-by {
+    padding: 0;
+    margin-right: 0;
+  }
+
+  .filter-options li {
+    padding: 0.5rem 0 0 0;
+    font-size: 1.4rem;
+  }
+
+  .lozenge-1,
+  .lozenge-2,
+  .launch-success {
+    font-size: 0.8rem;
+  }
+}
