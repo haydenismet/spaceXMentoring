@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 function FullDetailsTemplate(props) {
+  const [zoom, setZoom] = useState(0);
+
+  function handleZoom(e) {
+    setZoom(e.target.src);
+    console.log(zoom);
+  }
+
   function launchFullDetails() {
     return (
       <>
@@ -14,7 +21,11 @@ function FullDetailsTemplate(props) {
             <ul className="full-selected">
               {filteredSelection.image && filteredSelection.image !== null ? (
                 <li className="full-image">
-                  <img src={filteredSelection.image} />
+                  <img
+                    src={filteredSelection.image}
+                    alt="space-x-content"
+                    onClick={handleZoom}
+                  />
                 </li>
               ) : null}
               <ul className="full-details-info">
