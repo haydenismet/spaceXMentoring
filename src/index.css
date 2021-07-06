@@ -50,6 +50,7 @@ li[data-id="ABOUT."] {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-right: 55px;
 }
 
 .nav-list li {
@@ -81,7 +82,7 @@ li[data-id="ABOUT."] {
 .temporary-rocket-full {
   margin-bottom: 2rem;
   display: flex;
-  margin-left: 10rem;
+  justify-content: center;
 }
 
 .heading-title {
@@ -92,6 +93,7 @@ li[data-id="ABOUT."] {
   display: flex;
   max-width: 100vw;
   padding: 0 5rem 0 5rem;
+  justify-content: center;
 }
 
 .full-details-view {
@@ -151,8 +153,11 @@ span.mission-patch-small img {
   filter: grayscale(0) opacity(0.3);
 }
 
-.loader {
-  margin-left: 35rem;
+.loader-style {
+  align-self: center;
+  justify-content: center;
+  display: flex;
+  margin-left: 6rem;
 }
 
 .sort-filter {
@@ -287,6 +292,10 @@ span.mission-patch-small img {
 
 .full-selected {
   font-family: "Lato";
+  position: sticky;
+  top: 50px;
+  max-width: 800px;
+  max-height: 800px;
 }
 
 .full-name {
