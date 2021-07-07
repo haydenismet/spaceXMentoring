@@ -67,6 +67,7 @@ function ShipQuery(props) {
             selectedItem={item}
             spaceData={data}
             section={"SHIPS."}
+            setLightBox={props.setLightBox}
           />
         </section>
         <section className="content-section">

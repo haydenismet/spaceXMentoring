@@ -12,13 +12,13 @@ function RenderCategoryView(props) {
   function renderSwitch(param) {
     switch (param) {
       case "LAUNCHES.":
-        return <LaunchQuery />;
+        return <LaunchQuery setLightBox={props.setLightBox} />;
       case "ROCKETS.":
-        return <RocketQuery />;
+        return <RocketQuery setLightBox={props.setLightBox} />;
       case "SHIPS.":
-        return <ShipQuery />;
+        return <ShipQuery setLightBox={props.setLightBox} />;
       case "ABOUT.":
-        return <AboutQuery />;
+        return <AboutQuery setLightBox={props.setLightBox} />;
       default:
         return <div className="whoops"> Whoops. </div>;
     }

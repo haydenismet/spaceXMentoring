@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import LightBox from "./LightBox.js";
 
 function FullDetailsTemplate(props) {
-  const [zoom, setZoom] = useState(0);
-
   function handleZoom(e) {
-    setZoom(e.target.src);
-    console.log(zoom);
+    if (props.setLightBox) {
+      props.setLightBox(e.target.src);
+    }
   }
 
   function launchFullDetails() {

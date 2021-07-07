@@ -419,6 +419,19 @@ span.mission-patch-small img {
   background-color: #d26e6e;
 }
 
+#zoomed-image {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#zoomed-image img {
+  width: 100%;
+  height: 100vh;
+  object-fit: contain;
+}
+
 @media only screen and (max-width: 1200px) {
   .item-details {
     display: none;

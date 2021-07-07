@@ -91,6 +91,7 @@ function LaunchQuery(props) {
             selectedItem={item}
             spaceData={data}
             section={"LAUNCHES."}
+            setLightBox={props.setLightBox}
           />
         </section>
         <section className="content-section">
