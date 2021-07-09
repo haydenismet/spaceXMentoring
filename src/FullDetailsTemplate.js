@@ -4,7 +4,7 @@ import LightBox from "./LightBox.js";
 function FullDetailsTemplate(props) {
   function handleZoom(e) {
     if (props.setLightBox) {
-      props.setLightBox(e.target.src);
+      props.setLightBox(e.target.dataset.imgsrc);
     }
   }
 
@@ -21,11 +21,14 @@ function FullDetailsTemplate(props) {
             <ul className="full-selected">
               {filteredSelection.image && filteredSelection.image !== null ? (
                 <li className="full-image">
-                  <img
-                    src={filteredSelection.image}
-                    alt="space-x-content"
+                  <img src={filteredSelection.image} alt="space-x-content" />
+                  <div
+                    className="search-icon"
+                    data-imgsrc={filteredSelection.image}
                     onClick={handleZoom}
-                  />
+                  >
+                    ⚲
+                  </div>
                 </li>
               ) : null}
               <ul className="full-details-info">

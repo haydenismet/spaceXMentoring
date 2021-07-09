@@ -281,6 +281,7 @@ span.mission-patch-small img {
 .full-image {
   margin-bottom: 2rem;
   width: 100%;
+  position: relative;
 }
 
 .full-image img {
@@ -438,13 +439,62 @@ span.mission-patch-small img {
 .zoom-and-exit {
   color: white;
   position: absolute;
-  right: 200px;
-  top: 70px;
+  right: 100px;
+  top: 25px;
   font-size: 35px;
   border: 3px solid white;
   padding: 9px 15px 9px 15px;
   border-radius: 0px;
   cursor: pointer;
+}
+
+.search-icon {
+  transform: rotate(315deg);
+  font-size: 30px;
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  color: black;
+  background-color: white;
+  padding: 0px 14px;
+  border-radius: 600px;
+  font-weight: 900;
+}
+
+.scale-in-center {
+  -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-in-center
+ * ----------------------------------------
+ */
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 1200px) {

@@ -16,7 +16,7 @@ function SpaceX() {
         <RenderCategoryView header={header} setLightBox={setLightBox} />
         {/* Getter  -> can't change it's value */}
       </section>
-      <LightBox imageUrl={lightBox} />
+      <LightBox imageUrl={lightBox} setLightBox={setLightBox} />
     </>
   );
 }
