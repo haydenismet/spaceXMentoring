@@ -459,6 +459,7 @@ span.mission-patch-small img {
   padding: 0px 14px;
   border-radius: 600px;
   font-weight: 900;
+  cursor: pointer;
 }
 
 .scale-in-center {
