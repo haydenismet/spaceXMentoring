@@ -51,6 +51,7 @@ function RocketQuery(props) {
         .filter((filterObj) => {
           return filterObj.image !== null;
         });
+      console.log(commonData);
       setView(commonData);
       setOriginalData(commonData);
     }

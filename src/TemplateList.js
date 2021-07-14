@@ -22,9 +22,7 @@ function TemplateList(props) {
         );
       });
     } else if (props.section === "ROCKETS.") {
-      validResults = props.spaceData.filter((itemDesc) => {
-        return itemDesc.details.length >= 160;
-      });
+      validResults = props.spaceData;
     } else if (props.section === "SHIPS.") {
       validResults = props.spaceData.filter((itemDesc) => {
         return itemDesc.image && itemDesc.image !== null;
